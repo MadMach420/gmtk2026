@@ -7,3 +7,4 @@
 [node name="TimeSystem" type="Node" parent="." unique_id=1036203187]
 unique_name_in_owner = true
 script = ExtResource("1_nddxi")
+loop_length_s = 15
