@@ -26,7 +26,7 @@ z_index = 5
 position = Vector2(0, 2)
 
 [node name="ReversableBox" parent="World/Entities" unique_id=1959196158 instance=ExtResource("3_chrbn")]
-position = Vector2(38, -10)
+position = Vector2(38, 8)
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1479827985]
 
