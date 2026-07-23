@@ -10,19 +10,31 @@ var is_rewinding: bool = false
 # Only one tween per object allowed
 var current_tween: Tween
 
+var _was_snapshot_last_frame = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	time_system.loop_ended.connect(_start_rewind)
-	time_system.loop_started.connect(_on_loop_started)
-	
-	# Record the absolute initial state
-	_record_state()
 
 
 func _physics_process(delta: float) -> void:
-	if _is_state_changing():
+	if is_rewinding:
+		return
+	
+	var is_changing := _is_state_changing()
+	if not is_changing:
+		if _was_snapshot_last_frame:
+			_record_state()
+	if is_changing:
+		if not _was_snapshot_last_frame and not timeline.is_empty():
+				var snapshot = {
+					"time": time_system.get_current_time_left() + delta,
+					"data": timeline[-1]["data"]
+				}
+				timeline.append(snapshot)
 		_record_state()
+	_was_snapshot_last_frame = is_changing
 
 # ------------------------------------------------
 # --- VIRTUAL FUNCTIONS (Override in children) ---
@@ -36,13 +48,13 @@ func _get_state_data() -> Dictionary:
 	return {"position": global_position} # Override this!
 
 ## Take a Dictionary of state data and apply it to the object
-func _apply_state_data(data: Dictionary) -> void:
-	global_position = data.get("position", global_position) # Override this!
+func _apply_state_data(data: Dictionary, duration: float) -> void:
+	pass
 
 
 # --------------------------------
 # --- General reversable logic ---
-# ---------------------------- ---
+# --------------------------------
 
 func _record_state() -> void:
 	var snapshot = {
@@ -51,14 +63,10 @@ func _record_state() -> void:
 	}
 	timeline.append(snapshot)
 
-func _on_loop_started() -> void:
-	# Record state on loop start
-	_record_state()
-
 ## Start rewinding the object
 func _start_rewind() -> void:
-	print(timeline)
-	
+	_record_state()
+		
 	is_rewinding = true
 	
 	# Stop normal processing/physics for this object during rewind
@@ -74,21 +82,16 @@ func _start_rewind() -> void:
 	current_tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	
 	# Play through the reversed timeline
-	for i in range(timeline.size()):
+	for i in range(1, timeline.size()):
 		var snapshot = timeline[i]
 		var duration = 0.0
 		
 		# Calculate how long this specific state lasted originally
-		if i < timeline.size() - 1:
-			var next_snapshot_time = timeline[i + 1]["time"]
-			duration = abs(snapshot["time"] - next_snapshot_time)
+		var previous_snapshot_time = timeline[i - 1]["time"]
+		duration = snapshot["time"] - previous_snapshot_time
 
-		# Apply the state instantly
-		current_tween.tween_callback(_apply_state_data.bind(snapshot["data"]))
-
-		# Wait for the duration that passed between this state and the next
 		if duration > 0:
-			current_tween.tween_interval(duration)
+			_apply_state_data(snapshot["data"], duration)
 			
 	# When the tween finishes, reset the object
 	current_tween.tween_callback(_on_rewind_finished)

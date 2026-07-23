@@ -16,9 +16,11 @@ script = ExtResource("2_a6fbb")
 physics_material_override = SubResource("PhysicsMaterial_mvyla")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1232351826]
+
 texture = ExtResource("2_mvyla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=746130768]
 position = Vector2(0, -2.0861626e-07)
 scale = Vector2(1.7600029, 1.7600029)
+
 shape = SubResource("RectangleShape2D_qam74")
