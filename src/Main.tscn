@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://segcfoqnc4oi"]
+
+[ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="1_4gxt3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xd2r4"]
+
+[node name="Main" type="Node" unique_id=1042460849]
+
+[node name="System" type="Node" parent="." unique_id=1175687289]
+
+[node name="World" type="Node2D" parent="." unique_id=1750898451]
+
+[node name="LevelRoot" type="Node2D" parent="World" unique_id=1265546969]
+
+[node name="TempFloor" type="StaticBody2D" parent="World/LevelRoot" unique_id=249000970]
+position = Vector2(0, 342)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/LevelRoot/TempFloor" unique_id=747781087]
+shape = SubResource("WorldBoundaryShape2D_xd2r4")
+
+[node name="Entities" type="Node2D" parent="World" unique_id=651372436]
+
+[node name="Player" parent="World/Entities" unique_id=2039152220 instance=ExtResource("1_4gxt3")]
+position = Vector2(49, 281)
+
+[node name="Camera2D" type="Camera2D" parent="World/Entities/Player" unique_id=2073049365]
+position_smoothing_enabled = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1479827985]
+
+[node name="Label" type="Label" parent="HudLayer" unique_id=944783415]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=521528612]
