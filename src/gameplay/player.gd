@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const PUSH_FORCE = 50
 
 
 func _physics_process(delta: float) -> void:
@@ -23,3 +24,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	resolve_collisions()
+
+
+func resolve_collisions() -> void:
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+		var box_body := collision.get_collider() as RigidBody2D
+
+		if box_body:
+			var box = box_body.get_parent() as ReversableBox
+			if box:
+				var push_direction = -collision.get_normal()
+				box.apply_push(push_direction * PUSH_FORCE)

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://segcfoqnc4oi"]
 
 [ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="1_4gxt3"]
+[ext_resource type="PackedScene" uid="uid://q1np2ng6kpgm" path="res://src/gameplay/Systems.tscn" id="1_hk4rc"]
+[ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="3_chrbn"]
+[ext_resource type="Script" uid="uid://bw4nkrs8kbsdi" path="res://src/gameplay/time/temp_time_label.gd" id="4_5qjmp"]
 [ext_resource type="PackedScene" uid="uid://5buc5jqkuv8y" path="res://src/levels/base_level.tscn" id="2_hk4rc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xd2r4"]
 
 [node name="Main" type="Node" unique_id=1042460849]
 
-[node name="System" type="Node" parent="." unique_id=1175687289]
+[node name="Systems" parent="." unique_id=1118505382 instance=ExtResource("1_hk4rc")]
 
 [node name="World" type="Node2D" parent="." unique_id=1750898451]
 
@@ -20,11 +25,15 @@ position = Vector2(0, 342)
 z_index = 5
 position = Vector2(0, 2)
 
+[node name="ReversableBox" parent="World/Entities" unique_id=1959196158 instance=ExtResource("3_chrbn")]
+position = Vector2(-49, 307)
+
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1479827985]
 
-[node name="Label" type="Label" parent="HudLayer" unique_id=944783415]
+[node name="TempTimeLabel" type="Label" parent="HudLayer" unique_id=944783415]
 offset_right = 40.0
 offset_bottom = 23.0
+script = ExtResource("4_5qjmp")
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=521528612]
 
