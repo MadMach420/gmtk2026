@@ -11,9 +11,9 @@ var last_recorded_position: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super._ready() 
+	super._ready()
+	_record_state()
 	last_recorded_position = body.global_position
-	
 
 func _is_state_changing() -> bool:
 	var distance = body.global_position.distance_to(last_recorded_position)
@@ -29,15 +29,16 @@ func _get_state_data() -> Dictionary:
 		"rotation": body.global_rotation,
 	}
 
-func _apply_state_data(data: Dictionary) -> void:
+func _apply_state_data(data: Dictionary, duration: float) -> void:
 	# Manually force the RigidBody into the recorded position
-	body.global_position = data["position"]
-	body.global_rotation = data["rotation"]
-	
-	# Zero out velocity and let tween handle movement
-	body.linear_velocity = Vector2.ZERO
-	body.angular_velocity = 0.0
-	body.sleeping = false 
+	#body.global_position = data["position"]
+	#body.global_rotation = data["rotation"]
+	current_tween.tween_property(
+		body, "global_position", data["position"], duration
+	)
+	current_tween.parallel().tween_property(
+		body, "global_rotation", data["rotation"], duration
+	)
 
 
 func apply_push(force: Vector2) -> void:
