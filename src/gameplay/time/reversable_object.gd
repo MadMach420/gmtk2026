@@ -64,6 +64,8 @@ func _start_rewind() -> void:
 	# Stop normal processing/physics for this object during rewind
 	set_process(false)
 	set_physics_process(false)
+	if has_node("RigidBody2D"):
+		get_node("RigidBody2D").freeze = true
 	
 	# Reverse the timeline so the newest state is first, oldest is last
 	timeline.reverse()
@@ -79,11 +81,11 @@ func _start_rewind() -> void:
 		# Calculate how long this specific state lasted originally
 		if i < timeline.size() - 1:
 			var next_snapshot_time = timeline[i + 1]["time"]
-			duration = snapshot["time"] - next_snapshot_time
-			
+			duration = abs(snapshot["time"] - next_snapshot_time)
+
 		# Apply the state instantly
 		current_tween.tween_callback(_apply_state_data.bind(snapshot["data"]))
-		
+
 		# Wait for the duration that passed between this state and the next
 		if duration > 0:
 			current_tween.tween_interval(duration)

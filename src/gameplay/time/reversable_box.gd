@@ -3,6 +3,9 @@ class_name ReversableBox
 
 @onready var body: RigidBody2D = $RigidBody2D
 
+## Take a snapshot every time the box moves `> snapshot_distance` pixels
+@export var snapshot_distance = 2
+
 var last_recorded_position: Vector2
 
 
@@ -14,7 +17,8 @@ func _ready() -> void:
 
 func _is_state_changing() -> bool:
 	var distance = body.global_position.distance_to(last_recorded_position)
-	if distance > 5.0: # Snapshot every time the box moves >5 pixels
+	# Snapshot every time the box moves > X pixels
+	if distance > snapshot_distance:
 		last_recorded_position = body.global_position
 		return true
 	return false
