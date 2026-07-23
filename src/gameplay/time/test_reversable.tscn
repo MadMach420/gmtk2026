@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://q8ohx2rjj3u3"]
+
+[ext_resource type="Script" uid="uid://gpaibwtghchp" path="res://src/gameplay/time/reversable_object.gd" id="1_ifdr1"]
+[ext_resource type="Texture2D" uid="uid://bc1ayuixxupfe" path="res://icon.svg" id="2_qam74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qam74"]
+
+[node name="TestReversible" type="Node2D" unique_id=1959196158]
+script = ExtResource("1_ifdr1")
+metadata/_custom_type_script = "uid://gpaibwtghchp"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2117071784]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1232351826]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qam74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=746130768]
+scale = Vector2(3.0000007, 3.0000007)
+shape = SubResource("RectangleShape2D_qam74")

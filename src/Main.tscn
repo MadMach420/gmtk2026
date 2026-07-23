@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://segcfoqnc4oi"]
 
 [ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="1_4gxt3"]
+[ext_resource type="PackedScene" uid="uid://q1np2ng6kpgm" path="res://src/gameplay/Systems.tscn" id="1_hk4rc"]
+[ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/test_reversable.tscn" id="3_chrbn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xd2r4"]
 
 [node name="Main" type="Node" unique_id=1042460849]
 
-[node name="System" type="Node" parent="." unique_id=1175687289]
+[node name="Systems" parent="." unique_id=1118505382 instance=ExtResource("1_hk4rc")]
 
 [node name="World" type="Node2D" parent="." unique_id=1750898451]
 
@@ -25,6 +27,9 @@ position = Vector2(49, 281)
 
 [node name="Camera2D" type="Camera2D" parent="World/Entities/Player" unique_id=2073049365]
 position_smoothing_enabled = true
+
+[node name="TestReversible" parent="World/Entities" unique_id=1959196158 instance=ExtResource("3_chrbn")]
+position = Vector2(-49, 307)
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1479827985]
 

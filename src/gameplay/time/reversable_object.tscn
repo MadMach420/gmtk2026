@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfojjesbfkbsg"]
+
+[ext_resource type="Script" uid="uid://gpaibwtghchp" path="res://src/gameplay/time/reversable_object.gd" id="1_mthnd"]
+
+[node name="ReversibleObject" type="Node2D" unique_id=1811174690]
+script = ExtResource("1_mthnd")
