@@ -15,6 +15,7 @@ func _ready() -> void:
 	add_child(loop_timer)
 	loop_timer.one_shot = true
 	loop_timer.timeout.connect(_on_loop_timer_timeout)
+	start_time()
 
 func start_time() -> void:
 	is_rewinding = false
