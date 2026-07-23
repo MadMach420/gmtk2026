@@ -89,12 +89,9 @@ func _start_rewind() -> void:
 		# Calculate how long this specific state lasted originally
 		var previous_snapshot_time = timeline[i - 1]["time"]
 		duration = snapshot["time"] - previous_snapshot_time
-		print(duration)
 
 		if duration > 0:
 			_apply_state_data(snapshot["data"], duration)
-			#current_tween.tween_callback(_apply_state_data.bind(snapshot["data"], duration))
-			#current_tween.tween_interval(duration)
 			
 	# When the tween finishes, reset the object
 	current_tween.tween_callback(_on_rewind_finished)

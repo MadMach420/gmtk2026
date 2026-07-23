@@ -30,9 +30,6 @@ func _get_state_data() -> Dictionary:
 	}
 
 func _apply_state_data(data: Dictionary, duration: float) -> void:
-	# Manually force the RigidBody into the recorded position
-	#body.global_position = data["position"]
-	#body.global_rotation = data["rotation"]
 	current_tween.tween_property(
 		body, "global_position", data["position"], duration
 	)
