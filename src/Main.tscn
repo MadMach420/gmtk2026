@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bw4nkrs8kbsdi" path="res://src/gameplay/time/temp_time_label.gd" id="4_5qjmp"]
 
 [node name="Main" type="Node" unique_id=1042460849]
+script = ExtResource("1_5qjmp")
 
 [node name="Systems" parent="." unique_id=1118505382 instance=ExtResource("1_hk4rc")]
 
