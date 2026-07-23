@@ -20,12 +20,9 @@ func _ready() -> void:
 	_record_state()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var time := time_system.get_current_time_left()
-	var time_int_part = int(time)
-	if time > 0:
-		pass
+func _physics_process(delta: float) -> void:
+	if _is_state_changing():
+		_record_state()
 
 # ------------------------------------------------
 # --- VIRTUAL FUNCTIONS (Override in children) ---

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _is_state_changing() -> bool:
 	var distance = body.global_position.distance_to(last_recorded_position)
-	if distance > 1.0: # Snapshot every time the box moves >3 pixels
+	if distance > 5.0: # Snapshot every time the box moves >5 pixels
 		last_recorded_position = body.global_position
 		return true
 	return false
