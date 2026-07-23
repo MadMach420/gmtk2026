@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://q1np2ng6kpgm"]
+
+[ext_resource type="Script" uid="uid://bd0kw83xso206" path="res://src/gameplay/time/time_system.gd" id="1_nddxi"]
+
+[node name="Systems" type="Node" unique_id=1118505382]
+
+[node name="TimeSystem" type="Node" parent="." unique_id=1036203187]
+unique_name_in_owner = true
+script = ExtResource("1_nddxi")
+loop_length_s = 5

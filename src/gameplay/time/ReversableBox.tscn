@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://q8ohx2rjj3u3"]
+
+[ext_resource type="Script" uid="uid://bhmbucmocx7kw" path="res://src/gameplay/time/reversable_box.gd" id="2_a6fbb"]
+[ext_resource type="Texture2D" uid="uid://bc1ayuixxupfe" path="res://icon.svg" id="2_qam74"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mvyla"]
+friction = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qam74"]
+
+[node name="ReversableBox" type="Node2D" unique_id=986766108]
+script = ExtResource("2_a6fbb")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1149966999]
+physics_material_override = SubResource("PhysicsMaterial_mvyla")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1232351826]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_qam74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=746130768]
+scale = Vector2(1.7600029, 1.7600029)
+shape = SubResource("RectangleShape2D_qam74")
