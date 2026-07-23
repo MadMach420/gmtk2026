@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bo1hcbovqrwu5"]
+
+[ext_resource type="Texture2D" uid="uid://dtrf77j2qumo1" path="res://assets/sprites/Background/main_menu_placeholder.jpg" id="1_m3ldw"]
+[ext_resource type="Script" uid="uid://catewcq6ku5u8" path="res://src/ui/main_menu/main_menu.gd" id="1_xre00"]
+[ext_resource type="FontFile" uid="uid://dhs6onrljd0h2" path="res://assets/fonts/Bitmgothic.ttf" id="2_xre00"]
+[ext_resource type="AudioStream" uid="uid://h2m1mlfqwiqk" path="res://assets/sounds/theme.wav" id="4_mlydd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6a36"]
+texture = ExtResource("1_m3ldw")
+modulate_color = Color(0.18072194, 0.18072197, 0.18072197, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6a36"]
+content_margin_top = 3.0
+bg_color = Color(0.70284235, 0.72292644, 0.2975661, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlydd"]
+content_margin_top = 3.0
+bg_color = Color(0.4123076, 0.424388, 0.14598548, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56llo"]
+content_margin_top = 3.0
+bg_color = Color(0.5581981, 0.57406497, 0.21505377, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubb3x"]
+content_margin_top = 3.0
+
+[node name="MainMenu" type="Control" unique_id=494199836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xre00")
+
+[node name="Panel" type="Panel" parent="." unique_id=538458489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f6a36")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1207396055]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -63.5
+offset_right = 75.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Continue" type="Button" parent="VBoxContainer" unique_id=1495940774]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xre00")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
+text = "Continue"
+
+[node name="New Game" type="Button" parent="VBoxContainer" unique_id=2042042240]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xre00")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
+text = "New Game"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=986080337]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xre00")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=629408760]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xre00")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
+text = "Exit"
+
+[node name="Title" type="Label" parent="." unique_id=2119596078]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_top = 23.0
+offset_right = 139.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xre00")
+theme_override_font_sizes/font_size = 28
+text = "Placeholderowa nazwa"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1187637591]
+stream = ExtResource("4_mlydd")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

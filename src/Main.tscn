@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://segcfoqnc4oi"]
 
 [ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="1_4gxt3"]
+[ext_resource type="Script" uid="uid://dkhb2un85fjvo" path="res://src/main.gd" id="1_5qjmp"]
 [ext_resource type="PackedScene" uid="uid://5buc5jqkuv8y" path="res://src/levels/base_level.tscn" id="2_hk4rc"]
+[ext_resource type="PackedScene" uid="uid://bo1hcbovqrwu5" path="res://src/ui/main_menu/MainMenu.tscn" id="3_chrbn"]
 
 [node name="Main" type="Node" unique_id=1042460849]
+script = ExtResource("1_5qjmp")
 
 [node name="System" type="Node" parent="." unique_id=1175687289]
 
@@ -29,7 +32,10 @@ offset_bottom = 23.0
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=521528612]
 
 [node name="LevelMain" parent="." unique_id=518151189 instance=ExtResource("2_hk4rc")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2073049365]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="MainMenu" parent="." unique_id=494199836 instance=ExtResource("3_chrbn")]
