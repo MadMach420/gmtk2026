@@ -42,7 +42,7 @@ shadow_offset = Vector2(2, 2)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubb3x"]
 content_margin_top = 3.0
 
-[node name="MainMenu" type="Control" unique_id=494199836]
+[node name="MainMenu" type="Control" unique_id=494199836 node_paths=PackedStringArray("new_game_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +50,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xre00")
+initial_scene = &"uid://5buc5jqkuv8y"
+new_game_button = NodePath("VBoxContainer/New Game")
 
 [node name="Panel" type="Panel" parent="." unique_id=538458489]
 layout_mode = 1

@@ -1,13 +1,28 @@
 extends CharacterBody2D
 
+## Has the player pressed the interact action to start the level timer? (Loop or rewind)
+var has_started_timer = false
 
 const SPEED = 150.0
 const PUSH_FORCE = 50
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 
+@onready var time_system: TimeSystem = Systems.get_node("TimeSystem")
+@onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	time_system.loop_started.connect(func(): has_started_timer = true)
+	time_system.loop_ended.connect(func(): has_started_timer = false)
+	time_system.rewind_started.connect(func(): has_started_timer = true)
+	time_system.rewind_ended.connect(func(): has_started_timer = false)
 
 func _physics_process(delta: float) -> void:
+	if not has_started_timer:
+		if Input.is_action_just_pressed("interact"):
+			has_started_timer = true
+			time_system.start_timer()
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

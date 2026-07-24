@@ -19,7 +19,7 @@ var _was_at_rest_last_frame: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	time_system.loop_ended.connect(_start_rewind)
+	time_system.rewind_started.connect(_start_rewind)
 
 
 func _physics_process(delta: float) -> void:
