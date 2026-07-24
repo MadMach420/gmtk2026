@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="5_rsmv0"]
 [ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="5_y0vfd"]
 [ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="8_h8a1n"]
+[ext_resource type="PackedScene" uid="uid://dsnnkn4jg1qyl" path="res://src/gameplay/time/timeline/Timeline.tscn" id="9_m1ywn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
 texture = ExtResource("1_aga76")
@@ -282,5 +283,7 @@ position = Vector2(0, 89)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelTrigger" unique_id=1276196483]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8wq4x")
+
+[node name="Timeline" parent="." unique_id=596911782 instance=ExtResource("9_m1ywn")]
 
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]

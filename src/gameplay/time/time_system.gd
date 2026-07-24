@@ -16,6 +16,9 @@ var rewind_timer = Timer.new()
 var is_rewinding = false
 var has_loop_ended = false 
 
+var reversable_object_registry: ReversableObjectRegistry = ReversableObjectRegistry.new()
+
+
 func _init_timer(timer: Timer, timeout_func: Callable) -> void:
 	add_child(timer)
 	timer.one_shot = true

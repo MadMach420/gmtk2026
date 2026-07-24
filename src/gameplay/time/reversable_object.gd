@@ -1,6 +1,8 @@
 extends Node2D
 class_name ReversableObject
 
+signal state_recorded
+
 
 @onready var time_system: TimeSystem = Systems.get_node("%TimeSystem")
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 	time_system.rewind_started.connect(_start_rewind)
 	time_system.loop_started.connect(_record_state)
 	time_system.loop_ended.connect(_record_state)
+	time_system.reversable_object_registry.register_object(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -80,6 +83,9 @@ func _is_at_rest() -> bool:
 # --------------------------------
 # --- General reversable logic ---
 # --------------------------------
+func get_timeline() -> Array[Dictionary]:
+	return timeline
+
 func _record_state() -> void:
 	var snapshot = {
 		"time": time_system.get_current_time_left(),
@@ -90,6 +96,7 @@ func _record_state() -> void:
 func _append_to_timeline(snapshot: Dictionary):
 	if timeline.is_empty():
 		timeline.append(snapshot)
+		state_recorded.emit(timeline[-1]["time"], timeline[-1]["data"])
 	else:
 		var delta_t = abs(timeline[-1]["time"] - snapshot["time"])
 		if _states_equal(timeline[-1]["data"], snapshot["data"], delta_t):
@@ -102,8 +109,10 @@ func _append_to_timeline(snapshot: Dictionary):
 					"time": _previous_snapshot["time"],
 					"data": timeline[-1]["data"]
 				})
+				state_recorded.emit(timeline[-1]["time"], timeline[-1]["data"])
 			timeline.append(snapshot)
-	
+			state_recorded.emit(timeline[-1]["time"], timeline[-1]["data"])
+
 	if snapshot["time"] == 0.0:
 		timeline.append({
 			"time": snapshot["time"],
