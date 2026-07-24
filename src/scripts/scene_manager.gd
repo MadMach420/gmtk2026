@@ -21,6 +21,9 @@ func load_beginning_cutscene() -> void:
 func load_first_level() -> void:
 	SceneLoader.load_scene(LEVEL_PATHS_IN_ORDER[0])
 
+func reload_level() -> void:
+	SceneLoader.load_scene(LEVEL_PATHS_IN_ORDER[current_scene_index])
+
 func next_scene() -> void:
 	current_scene_index += 1
 	if current_scene_index >= len(LEVEL_PATHS_IN_ORDER):
