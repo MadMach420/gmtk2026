@@ -45,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd2r4"]
-size = Vector2(4.666667, 8)
+size = Vector2(4.666667, 8.666666)
 
 [node name="Player" type="CharacterBody2D" unique_id=2039152220]
 script = ExtResource("1_epmxn")
@@ -56,6 +56,6 @@ animation = &"new_animation"
 frame_progress = 0.1256694
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352917947]
-position = Vector2(0.5000001, 1.0000002)
+position = Vector2(0.5000001, 1.5000001)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_xd2r4")
