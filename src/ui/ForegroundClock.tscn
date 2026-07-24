@@ -1,10 +1,14 @@
-[gd_scene format=3 uid="uid://d4d04qni1tcpl"]
+[gd_scene format=3 uid="uid://00jlcbtjncoh"]
 
+[ext_resource type="Script" uid="uid://cspfiy6w04jan" path="res://src/ui/foreground_clock.gd" id="1_03746"]
 [ext_resource type="Texture2D" uid="uid://bxr1xe57sl767" path="res://assets/sprites/KraftoweAssety/clockface.png" id="1_wmnpd"]
+[ext_resource type="Texture2D" uid="uid://o50thtn8qpj7" path="res://assets/sprites/KraftoweAssety/clock_hand.png" id="2_klg2x"]
 
 [node name="ForegroundClock" type="Node2D" unique_id=292941288]
+script = ExtResource("1_03746")
 
 [node name="ClockFace" type="Sprite2D" parent="." unique_id=1568608881]
 texture = ExtResource("1_wmnpd")
 
 [node name="ClockHand" type="Sprite2D" parent="." unique_id=1605086965]
+texture = ExtResource("2_klg2x")

@@ -7,6 +7,6 @@
 [node name="TimeSystem" type="Node" parent="." unique_id=1036203187]
 unique_name_in_owner = true
 script = ExtResource("1_nddxi")
-loop_length_s = 10
+loop_length_s = 12
 
 [connection signal="loop_ended" from="TimeSystem" to="TimeSystem" method="_on_loop_ended"]
