@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsnnkn4jg1qyl"]
+
+[node name="Timeline" type="CanvasLayer" unique_id=596911782]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2066260179]
+offset_right = 40.0
+offset_bottom = 40.0

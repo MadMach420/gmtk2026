@@ -15,15 +15,18 @@ var current_tween: Tween
 
 var _has_changed_last_frame = false
 var _was_at_rest_last_frame: bool = false
+var _previous_snapshot = {}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	time_system.rewind_started.connect(_start_rewind)
+	time_system.loop_started.connect(_record_state)
+	time_system.loop_ended.connect(_record_state)
 
 
 func _physics_process(delta: float) -> void:
-	if is_rewinding:
+	if is_rewinding or time_system.loop_timer.is_stopped():
 		return
 	
 	var current_time = time_system.get_current_time_left()
@@ -45,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		
 		if has_state_changed:
 			if not _has_changed_last_frame and not timeline.is_empty():
-				timeline.append({"time": current_time + delta, "data": timeline[-1]["data"]})
+				_append_to_timeline({"time": current_time + delta, "data": timeline[-1]["data"]})
 			_record_state()
 		elif _has_changed_last_frame:
 			_record_state()
@@ -82,47 +85,41 @@ func _record_state() -> void:
 		"time": time_system.get_current_time_left(),
 		"data": _get_state_data()
 	}
-	timeline.append(snapshot)
+	_append_to_timeline(snapshot)
 	
-## Collapse consecutive "unchanged" snapshots into just their start/end points.
-## Must run on the forward (not yet reversed) timeline.
-func _compact_timeline() -> void:
-	if timeline.size() < 3: # Edge case
-		return
-	
-	var compacted: Array[Dictionary] = [timeline[0]]
-	var run_start_idx = 0
-	var run_last_idx = 0
-	
-	for i in range(1, timeline.size()):
-		var delta_t = abs(timeline[i]["time"] - timeline[run_start_idx]["time"])
-		if _states_equal(timeline[run_start_idx]["data"], timeline[i]["data"], delta_t):
-			# still within the same static run - extend it, don't emit yet
-			run_last_idx = i
+func _append_to_timeline(snapshot: Dictionary):
+	if timeline.is_empty():
+		timeline.append(snapshot)
+	else:
+		var delta_t = abs(timeline[-1]["time"] - snapshot["time"])
+		if _states_equal(timeline[-1]["data"], snapshot["data"], delta_t):
+			# If current snapshot state is the same as last, skip it
+			pass
 		else:
-			# run broke - emit its endpoint (if the run had more than one entry)
-			if run_last_idx != run_start_idx:
-				compacted.append({
-					"time": timeline[i-1]["time"],
-					"data": compacted[-1]["data"]
+			var previous_delta = abs(timeline[-1]["time"] - _previous_snapshot["time"])
+			if _states_equal(timeline[-1]["data"], _previous_snapshot["data"], previous_delta):
+				timeline.append({
+					"time": _previous_snapshot["time"],
+					"data": timeline[-1]["data"]
 				})
-			compacted.append(timeline[i])
-			run_start_idx = i
-			run_last_idx = i
+			timeline.append(snapshot)
 	
-	# flush a trailing run that reached the end of the timeline
-	if run_last_idx != run_start_idx:
-		compacted.append({
-					"time": timeline[run_last_idx]["time"],
-					"data": compacted[-1]["data"]
-				})
+	if snapshot["time"] == 0.0:
+		timeline.append({
+			"time": snapshot["time"],
+			"data": timeline[-1]["data"]
+		})
 	
-	timeline = compacted
+	_previous_snapshot = snapshot
+
 
 ## Start rewinding the object
-func _start_rewind() -> void:
+func _start_rewind() -> void:	
 	_record_state()
-	_compact_timeline()
+	#print(timeline)
+	#print(len(timeline))
+	#_compact_timeline()
+	#print(len(timeline))
 		
 	is_rewinding = true
 	
