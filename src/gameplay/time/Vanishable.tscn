@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cqx67lehate2u"]
+
+[ext_resource type="Script" uid="uid://ewobgx1vlfjc" path="res://src/gameplay/time/vanishable.gd" id="1_ec4vw"]
+
+[node name="Vanishable" type="Node2D" unique_id=1733515578]
+script = ExtResource("1_ec4vw")
