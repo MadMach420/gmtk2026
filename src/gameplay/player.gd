@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not has_started_timer:
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("start_loop"):
 			has_started_timer = true
 			time_system.start_timer()
 
