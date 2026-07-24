@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx7i03edhtlua" path="res://src/gameplay/player.gd" id="1_epmxn"]
 [ext_resource type="Texture2D" uid="uid://chn7q0b6a735j" path="res://assets/sprites/KraftoweAssety/walking.png" id="2_epmxn"]
+[ext_resource type="Script" uid="uid://0anqcuywcav5" path="res://src/gameplay/player_movement.gd" id="3_dnny1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnny1"]
 atlas = ExtResource("2_epmxn")
@@ -59,3 +60,6 @@ frame_progress = 0.1256694
 position = Vector2(0.5000001, 1.5000001)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_xd2r4")
+
+[node name="PlayerMovement" type="Node2D" parent="." unique_id=1506341663]
+script = ExtResource("3_dnny1")
