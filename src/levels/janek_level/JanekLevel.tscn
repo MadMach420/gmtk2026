@@ -311,6 +311,7 @@ shape = SubResource("RectangleShape2D_breu7")
 
 [node name="VanishablePoint" parent="Entities" unique_id=700712857 instance=ExtResource("8_ik5oo")]
 position = Vector2(-8, 17)
+timeout_value = 7.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
 zoom = Vector2(4, 4)

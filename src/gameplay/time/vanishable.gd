@@ -1,7 +1,7 @@
 extends Node2D
 class_name Vanishable
 
-
+@export var timeout_value: float = 0.0
 @onready var time_system: TimeSystem = Systems.get_node("%TimeSystem")
 
 # Called when the node enters the scene tree for the first time.
@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _vanish() -> void:
-	await get_tree().create_timer(7.0).timeout
+	await get_tree().create_timer(timeout_value).timeout
 	queue_free()
