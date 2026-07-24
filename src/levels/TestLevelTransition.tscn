@@ -1,19 +1,15 @@
-[gd_scene format=4 uid="uid://5buc5jqkuv8y"]
+[gd_scene format=4 uid="uid://c75or3s5regtr"]
 
-[ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="1_aga76"]
-[ext_resource type="Script" uid="uid://clw52hhkjs132" path="res://src/levels/level.gd" id="1_x4dei"]
-[ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="2_w2vuk"]
-[ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="3_8j5m5"]
-[ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="4_glu2l"]
-[ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="5_rsmv0"]
-[ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="5_y0vfd"]
-[ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="7_m1ywn"]
-[ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="8_h8a1n"]
-[ext_resource type="PackedScene" uid="uid://dsnnkn4jg1qyl" path="res://src/gameplay/time/timeline/Timeline.tscn" id="9_m1ywn"]
-[ext_resource type="PackedScene" uid="uid://cwp1cnbkhtalm" path="res://src/gameplay/time/ReversableLever.tscn" id="10_b4pb0"]
+[ext_resource type="Script" uid="uid://clw52hhkjs132" path="res://src/levels/level.gd" id="1_mdckv"]
+[ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="2_10x45"]
+[ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_ukchf"]
+[ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="4_ck5cd"]
+[ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="5_tdvav"]
+[ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="9_ulcya"]
+[ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="10_rtt01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
-texture = ExtResource("1_aga76")
+texture = ExtResource("2_10x45")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -110,7 +106,7 @@ texture = ExtResource("1_aga76")
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dr327"]
-texture = ExtResource("2_w2vuk")
+texture = ExtResource("3_ukchf")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -213,7 +209,7 @@ texture = ExtResource("2_w2vuk")
 6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6gs1"]
-texture = ExtResource("3_8j5m5")
+texture = ExtResource("4_ck5cd")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -249,7 +245,7 @@ sources/2 = SubResource("TileSetAtlasSource_t6gs1")
 size = Vector2(32, 9)
 
 [node name="LevelMain" type="Node2D" unique_id=518151189]
-script = ExtResource("1_x4dei")
+script = ExtResource("1_mdckv")
 
 [node name="World" type="Node2D" parent="." unique_id=678546020]
 
@@ -263,26 +259,17 @@ tile_set = SubResource("TileSet_8wq4x")
 
 [node name="Entities" type="Node2D" parent="." unique_id=619146661]
 
-[node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("4_glu2l")]
+[node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("5_tdvav")]
 position = Vector2(0, -128)
-
-[node name="ReversableBox" parent="Entities" unique_id=986766108 instance=ExtResource("5_rsmv0")]
-position = Vector2(-26, -23)
-
-[node name="ReversableButton" parent="Entities" unique_id=1932701450 instance=ExtResource("7_m1ywn")]
-position = Vector2(-55, -15)
-
-[node name="ReversableLever" parent="Entities" unique_id=788093610 instance=ExtResource("10_b4pb0")]
-position = Vector2(46, -15)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
 zoom = Vector2(4, 4)
 
 [node name="Clocks" type="Node2D" parent="." unique_id=595288435]
 
-[node name="BackgroundClock" parent="Clocks" unique_id=2147459749 instance=ExtResource("5_y0vfd")]
+[node name="BackgroundClock" parent="Clocks" unique_id=2147459749 instance=ExtResource("9_ulcya")]
 
-[node name="ForegroundClock" parent="Clocks" unique_id=292941288 instance=ExtResource("8_h8a1n")]
+[node name="ForegroundClock" parent="Clocks" unique_id=292941288 instance=ExtResource("10_rtt01")]
 position = Vector2(104, -74)
 
 [node name="NextLevelTrigger" type="Area2D" parent="." unique_id=205503598]
@@ -291,8 +278,6 @@ position = Vector2(0, 89)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelTrigger" unique_id=1276196483]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8wq4x")
-
-[node name="Timeline" parent="." unique_id=596911782 instance=ExtResource("9_m1ywn")]
 
 [connection signal="player_entered_transition_zone" from="." to="." method="_on_player_entered_transition_zone"]
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]

@@ -1,26 +1,6 @@
 [gd_scene format=3 uid="uid://segcfoqnc4oi"]
 
-[ext_resource type="PackedScene" uid="uid://q1np2ng6kpgm" path="res://src/gameplay/Systems.tscn" id="1_hk4rc"]
-[ext_resource type="Script" uid="uid://dkhb2un85fjvo" path="res://src/main.gd" id="1_vjwby"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6a36"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="Script" uid="uid://33jry8f4be5i" path="res://src/scripts/scene_loader.gd" id="1_chrbn"]
 
 [node name="Main" type="Node" unique_id=1042460849]
-script = ExtResource("1_vjwby")
-main_menu = &"uid://bo1hcbovqrwu5"
-
-[node name="Systems" parent="." unique_id=1118505382 instance=ExtResource("1_hk4rc")]
-
-[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1479827985]
-
-[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=521528612]
-
-[node name="MainPanel" type="Panel" parent="." unique_id=292023399]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f6a36")
+script = ExtResource("1_chrbn")

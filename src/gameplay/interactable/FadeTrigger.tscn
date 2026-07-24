@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://x7jg1e2i101p"]
+
+[ext_resource type="Script" uid="uid://mij1qefmwje" path="res://src/gameplay/interactable/fade_trigger.gd" id="1_ts3ll"]
+
+[node name="FadeTrigger" type="Node2D" unique_id=1121345577]
+script = ExtResource("1_ts3ll")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=963473880]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2082618737]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

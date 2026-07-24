@@ -13,6 +13,7 @@ signal rewind_ended
 
 var loop_timer = Timer.new()
 var rewind_timer = Timer.new()
+var has_loop_started = false
 var is_rewinding = false
 var has_loop_ended = false 
 
@@ -26,15 +27,20 @@ func _init_timer(timer: Timer, timeout_func: Callable) -> void:
 
 ## Reset the timers
 func _reset() -> void:
-	pass
+	has_loop_started = false
+	has_loop_ended = false
+	if not loop_timer.is_stopped(): loop_timer.stop()
+	if not rewind_timer.is_stopped(): rewind_timer.stop()
+	_init_timer(loop_timer, _on_loop_timer_timeout)
+	_init_timer(rewind_timer, _on_rewind_timer_timeout)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_init_timer(loop_timer, _on_loop_timer_timeout)
-	_init_timer(rewind_timer, _on_rewind_timer_timeout)
+	_reset()
 
 func _start_loop() -> void:
 	is_rewinding = false
+	has_loop_started = true
 	loop_timer.start(loop_length_s)
 	loop_started.emit()
 	
@@ -47,6 +53,7 @@ func _start_rewind() -> void:
 ## Returns time left to start on rewind loop
 func get_current_time_left() -> float:
 	if not is_rewinding:
+		if not has_loop_started: return loop_length_s
 		if not loop_timer.is_stopped():
 			return loop_timer.time_left
 		else: return 0.0
