@@ -10,6 +10,7 @@ var is_pressed = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	animated_sprite_2d.modulate = object_color_code
 
 func _get_state_data() -> Dictionary:
 	return {

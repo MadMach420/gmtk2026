@@ -3,6 +3,7 @@ class_name ReversableObject
 
 signal state_recorded
 
+@export var object_color_code: Color = Color()
 
 @onready var time_system: TimeSystem = Systems.get_node("%TimeSystem")
 

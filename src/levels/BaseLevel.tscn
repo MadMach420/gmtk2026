@@ -268,12 +268,15 @@ position = Vector2(0, -128)
 
 [node name="ReversableBox" parent="Entities" unique_id=986766108 instance=ExtResource("5_rsmv0")]
 position = Vector2(-26, -23)
+object_color_code = Color(0, 1, 0, 1)
 
 [node name="ReversableButton" parent="Entities" unique_id=1932701450 instance=ExtResource("7_m1ywn")]
 position = Vector2(-55, -15)
+object_color_code = Color(1, 0, 0, 1)
 
 [node name="ReversableLever" parent="Entities" unique_id=788093610 instance=ExtResource("10_b4pb0")]
 position = Vector2(46, -15)
+object_color_code = Color(1, 0.8509804, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
 zoom = Vector2(4, 4)

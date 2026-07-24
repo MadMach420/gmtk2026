@@ -27,7 +27,7 @@ func _on_state_recorded(time_left: float, data: Dictionary) -> void:
 func _add_indicator(time_left: float, data: Dictionary) -> void:
 	var indicator = preload("res://src/gameplay/time/timeline/TimelineIndicator.tscn").instantiate()
 	track.add_child(indicator)
-	indicator.setup(time_left, loop_length, data)
+	indicator.setup(time_left, loop_length, data, reversable_object.object_color_code)
 
 # Called by the main TimelineUI to move the rewind cursor
 func update_playhead(current_time_left: float) -> void:
