@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dx7i03edhtlua" path="res://src/gameplay/player.gd" id="1_epmxn"]
 [ext_resource type="Texture2D" uid="uid://d3mww857m47qd" path="res://assets/sprites/KraftoweAssety/Wampir2.png" id="2_epmxn"]
+[ext_resource type="Script" uid="uid://cauttg6o0pou7" path="res://src/gameplay/player_movement.gd" id="3_dnny1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd2r4"]
 size = Vector2(4.666667, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=2039152220]
 script = ExtResource("1_epmxn")
+use_legacy_movement = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402661011]
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
@@ -18,3 +20,6 @@ texture = ExtResource("2_epmxn")
 position = Vector2(0.5000001, 1.0000002)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_xd2r4")
+
+[node name="PlayerMovement" type="Node2D" parent="." unique_id=1823942347]
+script = ExtResource("3_dnny1")
