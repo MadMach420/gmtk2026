@@ -2,6 +2,7 @@ extends ReversableObject
 class_name ReversableBox
 
 @onready var body: RigidBody2D = $RigidBody2D
+@onready var sprite_2d: Sprite2D = $RigidBody2D/Sprite2D
 
 @export var position_epsilon: float = 2   # pixels
 @export var speed_epsilon: float = 2.0   # pixels per second
@@ -11,6 +12,7 @@ class_name ReversableBox
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	sprite_2d.modulate = object_color_code
 
 func _get_state_data() -> Dictionary:
 	return {
