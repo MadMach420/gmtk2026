@@ -28,24 +28,6 @@ func _is_at_rest() -> bool:
 # Override with super call
 func _start_rewind() -> void:
 	super._start_rewind()
-	_print_states()
-
-
-# -----------------------
-# Temp helper
-func _print_states() -> void:
-	var previous_state: Dictionary = {"time": 0, "data": {}}
-	for i in timeline:
-		var delta_t = abs(i["time"] - previous_state["time"])
-		if delta_t > EPSILON_T and _states_equal(previous_state["data"], i["data"], delta_t):
-			print("Unchanging state detected: ")
-			print("  Time start: {time}".format({"time": previous_state["time"]}))
-			print("  Time stop: {time}".format({"time": i["time"]}))
-			print("  Delta t: {0}".format([delta_t]))
-			print("  Position1: {pos}".format({"pos": previous_state["data"]}))
-			print("  Position2: {pos}".format({"pos": i["data"]}))
-		previous_state = i
-		
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
