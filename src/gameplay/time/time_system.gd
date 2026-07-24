@@ -32,8 +32,8 @@ func _ready() -> void:
 
 func _start_loop() -> void:
 	is_rewinding = false
-	loop_started.emit()
 	loop_timer.start(loop_length_s)
+	loop_started.emit()
 	
 func _start_rewind() -> void:
 	is_rewinding = true

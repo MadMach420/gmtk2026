@@ -21,10 +21,12 @@ var _previous_snapshot = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	time_system.rewind_started.connect(_start_rewind)
+	time_system.loop_started.connect(_record_state)
+	time_system.loop_ended.connect(_record_state)
 
 
 func _physics_process(delta: float) -> void:
-	if is_rewinding:
+	if is_rewinding or time_system.loop_timer.is_stopped():
 		return
 	
 	var current_time = time_system.get_current_time_left()
@@ -101,6 +103,13 @@ func _append_to_timeline(snapshot: Dictionary):
 					"data": timeline[-1]["data"]
 				})
 			timeline.append(snapshot)
+	
+	if snapshot["time"] == 0.0:
+		timeline.append({
+			"time": snapshot["time"],
+			"data": timeline[-1]["data"]
+		})
+	
 	_previous_snapshot = snapshot
 
 
@@ -140,9 +149,12 @@ func _compact_timeline() -> void:
 	timeline = compacted
 
 ## Start rewinding the object
-func _start_rewind() -> void:
+func _start_rewind() -> void:	
 	_record_state()
-	_compact_timeline()
+	#print(timeline)
+	#print(len(timeline))
+	#_compact_timeline()
+	#print(len(timeline))
 		
 	is_rewinding = true
 	

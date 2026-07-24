@@ -7,15 +7,10 @@ class_name ReversableBox
 @export var speed_epsilon: float = 2.0   # pixels per second
 @export var angular_speed_epsilon: float = 0.1  # radians per second
 
-var last_recorded_position: Vector2
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	_record_state()
-	last_recorded_position = body.global_position
-
 
 func _get_state_data() -> Dictionary:
 	return {
