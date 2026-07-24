@@ -3,12 +3,17 @@ extends CharacterBody2D
 ## Has the player pressed the interact action to start the level timer? (Loop or rewind)
 var has_started_timer = false
 
-const SPEED = 150.0
+const SPEED = 100.0
 const PUSH_FORCE = 50
 
+@export var use_legacy_movement: bool = false
+
+var previous_velocity: float = 0.0  # stores pre-collision velocity
 
 @onready var time_system: TimeSystem = Systems.get_node("TimeSystem")
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_movement: Node2D = $PlayerMovement
+
 
 func _ready() -> void:
 	time_system.loop_started.connect(func(): has_started_timer = true)
@@ -28,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	if has_started_timer:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
+		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis("move_left", "move_right")
 		
 		if direction > 0:
@@ -35,10 +41,15 @@ func _physics_process(delta: float) -> void:
 		elif direction < 0:
 			sprite_2d.flip_h = true
 		
-		if direction:
-			velocity.x = direction * SPEED
+		if  use_legacy_movement:
+			if direction:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = player_movement.get_horizontal_velocity(velocity.x, direction, delta)
+	
+	previous_velocity = velocity.x
 
 	move_and_slide()
 	resolve_collisions()
@@ -54,3 +65,4 @@ func resolve_collisions() -> void:
 			if box:
 				var push_direction = -collision.get_normal()
 				box.apply_push(push_direction * PUSH_FORCE)
+				velocity.x = previous_velocity
