@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciyhgr8le817x"
-path="res://.godot/imported/Przycisk1.png-c21979dce20102c00e8aa3e681a27a17.ctex"
+uid="uid://bsvbetkhrvg63"
+path="res://.godot/imported/LevelRight.png-b068878b3351d671bd052374de40d5ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/KraftoweAssety/Przycisk1.png"
-dest_files=["res://.godot/imported/Przycisk1.png-c21979dce20102c00e8aa3e681a27a17.ctex"]
+source_file="res://assets/sprites/KraftoweAssety/LevelRight.png"
+dest_files=["res://.godot/imported/LevelRight.png-b068878b3351d671bd052374de40d5ae.ctex"]
 
 [params]
 
