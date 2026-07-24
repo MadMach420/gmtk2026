@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cekh2msv6af7r"]
+
+[ext_resource type="Script" uid="uid://ctrgdcj3yhfv5" path="res://src/gameplay/time/timeline/timeline_indicator.gd" id="1_8drya"]
+
+[node name="TimelineIndicator" type="ColorRect" unique_id=1322601272]
+custom_minimum_size = Vector2(5, 5)
+custom_maximum_size = Vector2(5, 5)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_8drya")
