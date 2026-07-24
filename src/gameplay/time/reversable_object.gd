@@ -15,6 +15,7 @@ var current_tween: Tween
 
 var _has_changed_last_frame = false
 var _was_at_rest_last_frame: bool = false
+var _previous_snapshot = {}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		
 		if has_state_changed:
 			if not _has_changed_last_frame and not timeline.is_empty():
-				timeline.append({"time": current_time + delta, "data": timeline[-1]["data"]})
+				_append_to_timeline({"time": current_time + delta, "data": timeline[-1]["data"]})
 			_record_state()
 		elif _has_changed_last_frame:
 			_record_state()
@@ -82,8 +83,27 @@ func _record_state() -> void:
 		"time": time_system.get_current_time_left(),
 		"data": _get_state_data()
 	}
-	timeline.append(snapshot)
+	_append_to_timeline(snapshot)
 	
+func _append_to_timeline(snapshot: Dictionary):
+	if timeline.is_empty():
+		timeline.append(snapshot)
+	else:
+		var delta_t = abs(timeline[-1]["time"] - snapshot["time"])
+		if _states_equal(timeline[-1]["data"], snapshot["data"], delta_t):
+			# If current snapshot state is the same as last, skip it
+			pass
+		else:
+			var previous_delta = abs(timeline[-1]["time"] - _previous_snapshot["time"])
+			if _states_equal(timeline[-1]["data"], _previous_snapshot["data"], previous_delta):
+				timeline.append({
+					"time": _previous_snapshot["time"],
+					"data": timeline[-1]["data"]
+				})
+			timeline.append(snapshot)
+	_previous_snapshot = snapshot
+
+
 ## Collapse consecutive "unchanged" snapshots into just their start/end points.
 ## Must run on the forward (not yet reversed) timeline.
 func _compact_timeline() -> void:
