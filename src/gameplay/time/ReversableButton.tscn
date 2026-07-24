@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://qla420j6mqny"]
+
+[ext_resource type="Script" uid="uid://c3gw3jcwsw3m5" path="res://src/gameplay/time/reversable_button.gd" id="1_c43r2"]
+[ext_resource type="Texture2D" uid="uid://cmrg44jjwxnht" path="res://assets/sprites/KraftoweAssety/ButtonOff.png" id="1_ofwsr"]
+[ext_resource type="Texture2D" uid="uid://ciyhgr8le817x" path="res://assets/sprites/KraftoweAssety/ButtonOn.png" id="2_c43r2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2tvh"]
+size = Vector2(10, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skq81"]
+atlas = ExtResource("2_c43r2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nujc5"]
+atlas = ExtResource("1_ofwsr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wq4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skq81")
+}],
+"loop": 0,
+"name": &"pressed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nujc5")
+}],
+"loop": 0,
+"name": &"released",
+"speed": 0.0
+}]
+
+[node name="ReversableButton" type="Node2D" unique_id=1932701450]
+script = ExtResource("1_c43r2")
+metadata/_custom_type_script = "uid://gpaibwtghchp"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=155969385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=311396908]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_w2tvh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126301887]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_8wq4x")
+animation = &"pressed"
+autoplay = "released"
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -3,11 +3,8 @@ extends Node2D
 signal player_entered_transition_zone
 
 @onready var next_level_trigger: Area2D = $NextLevelTrigger
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+@onready var reversable_button: ReversableButton = $Entities/ReversableButton
+@onready var reversable_lever: ReversableLever = $Entities/ReversableLever
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
