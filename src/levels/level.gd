@@ -1,10 +1,8 @@
 extends Node2D
+class_name Level
 
 signal player_entered_transition_zone
 
-@onready var next_level_trigger: Area2D = $NextLevelTrigger
-@onready var reversable_button: ReversableButton = $Entities/ReversableButton
-@onready var reversable_lever: ReversableLever = $Entities/ReversableLever
 @onready var time_system: TimeSystem = Systems.get_node("%TimeSystem")
 @export var restart_timeout_s: float = 0.2
 
@@ -21,11 +19,6 @@ func _process(delta: float) -> void:
 		restart_pressed_timer.start(restart_timeout_s)
 	if !Input.is_action_pressed("restart_level") and not restart_pressed_timer.is_stopped():
 		restart_pressed_timer.stop()
-
-func _on_next_level_trigger_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		player_entered_transition_zone.emit()
-
 
 func _on_player_entered_transition_zone() -> void:
 	SceneManager.next_scene()

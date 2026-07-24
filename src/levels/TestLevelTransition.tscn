@@ -244,7 +244,7 @@ sources/2 = SubResource("TileSetAtlasSource_t6gs1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wq4x"]
 size = Vector2(32, 9)
 
-[node name="LevelMain" type="Node2D" unique_id=518151189]
+[node name="LevelMain2" type="Node2D" unique_id=518151189]
 script = ExtResource("1_mdckv")
 
 [node name="World" type="Node2D" parent="." unique_id=678546020]
