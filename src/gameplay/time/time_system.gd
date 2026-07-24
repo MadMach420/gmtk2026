@@ -28,12 +28,13 @@ func _reset() -> void:
 	has_loop_ended = false
 	if not loop_timer.is_stopped(): loop_timer.stop()
 	if not rewind_timer.is_stopped(): rewind_timer.stop()
-	_init_timer(loop_timer, _on_loop_timer_timeout)
-	_init_timer(rewind_timer, _on_rewind_timer_timeout)
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_reset()
+	_init_timer(loop_timer, _on_loop_timer_timeout)
+	_init_timer(rewind_timer, _on_rewind_timer_timeout)
 
 func _start_loop() -> void:
 	is_rewinding = false

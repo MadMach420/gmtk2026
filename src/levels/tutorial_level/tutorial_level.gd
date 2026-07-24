@@ -1,8 +1,6 @@
 extends Level
 
 @onready var next_level_trigger: Area2D = $NextLevelTrigger
-@onready var reversable_button: ReversableButton = $Entities/ReversableButton
-@onready var reversable_lever: ReversableLever = $Entities/ReversableLever
 @onready var tutorial_hud: Node2D = $TutorialHud
 
 
