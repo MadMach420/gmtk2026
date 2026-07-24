@@ -113,41 +113,6 @@ func _append_to_timeline(snapshot: Dictionary):
 	_previous_snapshot = snapshot
 
 
-## Collapse consecutive "unchanged" snapshots into just their start/end points.
-## Must run on the forward (not yet reversed) timeline.
-func _compact_timeline() -> void:
-	if timeline.size() < 3: # Edge case
-		return
-	
-	var compacted: Array[Dictionary] = [timeline[0]]
-	var run_start_idx = 0
-	var run_last_idx = 0
-	
-	for i in range(1, timeline.size()):
-		var delta_t = abs(timeline[i]["time"] - timeline[run_start_idx]["time"])
-		if _states_equal(timeline[run_start_idx]["data"], timeline[i]["data"], delta_t):
-			# still within the same static run - extend it, don't emit yet
-			run_last_idx = i
-		else:
-			# run broke - emit its endpoint (if the run had more than one entry)
-			if run_last_idx != run_start_idx:
-				compacted.append({
-					"time": timeline[i-1]["time"],
-					"data": compacted[-1]["data"]
-				})
-			compacted.append(timeline[i])
-			run_start_idx = i
-			run_last_idx = i
-	
-	# flush a trailing run that reached the end of the timeline
-	if run_last_idx != run_start_idx:
-		compacted.append({
-					"time": timeline[run_last_idx]["time"],
-					"data": compacted[-1]["data"]
-				})
-	
-	timeline = compacted
-
 ## Start rewinding the object
 func _start_rewind() -> void:	
 	_record_state()
