@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d4d04qni1tcpl"]
+
+[ext_resource type="Texture2D" uid="uid://bxr1xe57sl767" path="res://assets/sprites/KraftoweAssety/clockface.png" id="1_wmnpd"]
+
+[node name="ForegroundClock" type="Node2D" unique_id=292941288]
+
+[node name="ClockFace" type="Sprite2D" parent="." unique_id=1568608881]
+texture = ExtResource("1_wmnpd")
+
+[node name="ClockHand" type="Sprite2D" parent="." unique_id=1605086965]
