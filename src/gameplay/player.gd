@@ -6,7 +6,15 @@ var has_started_timer = false
 const SPEED = 100.0
 const PUSH_FORCE = 50
 
+const STEP_JUMP_VELOCITY := -80
+
+@onready var upper_raycaster_right: RayCast2D = $Raycasters/UpperRaycasterRight      
+@onready var upper_raycaster_left: RayCast2D = $Raycasters/UpperRaycasterLeft
+@onready var lower_raycaster_right: RayCast2D = $Raycasters/LowerRaycasterRight
+@onready var lower_raycaster_left: RayCast2D = $Raycasters/LowerRaycasterLeft
+
 @export var use_legacy_movement: bool = false
+@onready var player_collision_shape: CollisionShape2D = $CollisionShape2D
 
 var previous_velocity: float = 0.0  # stores pre-collision velocity
 
@@ -32,8 +40,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if has_started_timer:
 		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis("move_left", "move_right")
 		
 		if direction > 0:
@@ -48,9 +54,12 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 		else:
 			velocity.x = player_movement.get_horizontal_velocity(velocity.x, direction, delta)
+	else:
+		velocity.x = 0
 	
 	previous_velocity = velocity.x
-
+	
+	handle_step_jump()
 	move_and_slide()
 	resolve_collisions()
 
@@ -66,3 +75,18 @@ func resolve_collisions() -> void:
 				var push_direction = -collision.get_normal()
 				box.apply_push(push_direction * PUSH_FORCE)
 				velocity.x = previous_velocity
+
+func handle_step_jump() -> void:
+	if !is_on_floor():
+		return
+
+	if velocity.y < 0:
+		return
+
+	if  velocity.x > 0:
+		if lower_raycaster_right.is_colliding() and !upper_raycaster_right.is_colliding() and !lower_raycaster_left.is_colliding():
+			velocity.y = STEP_JUMP_VELOCITY
+
+	elif velocity.x < 0:
+		if lower_raycaster_left.is_colliding() and !upper_raycaster_left.is_colliding() and !lower_raycaster_right.is_colliding():
+			velocity.y = STEP_JUMP_VELOCITY

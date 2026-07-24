@@ -63,3 +63,21 @@ shape = SubResource("RectangleShape2D_xd2r4")
 
 [node name="PlayerMovement" type="Node2D" parent="." unique_id=1506341663]
 script = ExtResource("3_dnny1")
+
+[node name="Raycasters" type="Node2D" parent="." unique_id=1496663506]
+
+[node name="LowerRaycasterLeft" type="RayCast2D" parent="Raycasters" unique_id=649812102]
+position = Vector2(0, 8)
+target_position = Vector2(-4, 0)
+
+[node name="UpperRaycasterRight" type="RayCast2D" parent="Raycasters" unique_id=941194279]
+position = Vector2(0, 7)
+target_position = Vector2(5, -3)
+
+[node name="UpperRaycasterLeft" type="RayCast2D" parent="Raycasters" unique_id=2085679450]
+position = Vector2(0, 7)
+target_position = Vector2(-4, -3)
+
+[node name="LowerRaycasterRight" type="RayCast2D" parent="Raycasters" unique_id=1033330418]
+position = Vector2(0, 8)
+target_position = Vector2(5, 0)
