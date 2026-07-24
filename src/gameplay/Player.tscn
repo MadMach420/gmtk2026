@@ -1,7 +1,48 @@
 [gd_scene format=3 uid="uid://bxujl5s0wu02f"]
 
 [ext_resource type="Script" uid="uid://dx7i03edhtlua" path="res://src/gameplay/player.gd" id="1_epmxn"]
-[ext_resource type="Texture2D" uid="uid://d3mww857m47qd" path="res://assets/sprites/KraftoweAssety/Wampir2.png" id="2_epmxn"]
+[ext_resource type="Texture2D" uid="uid://chn7q0b6a735j" path="res://assets/sprites/KraftoweAssety/walking.png" id="2_epmxn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnny1"]
+atlas = ExtResource("2_epmxn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pai1"]
+atlas = ExtResource("2_epmxn")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1bm0"]
+atlas = ExtResource("2_epmxn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aesg"]
+atlas = ExtResource("2_epmxn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wq4x"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnny1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pai1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1bm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aesg")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd2r4"]
 size = Vector2(4.666667, 8)
@@ -9,10 +50,10 @@ size = Vector2(4.666667, 8)
 [node name="Player" type="CharacterBody2D" unique_id=2039152220]
 script = ExtResource("1_epmxn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402661011]
-position = Vector2(-4.7683716e-07, -4.7683716e-07)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("2_epmxn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=282128339]
+sprite_frames = SubResource("SpriteFrames_8wq4x")
+animation = &"new_animation"
+frame_progress = 0.1256694
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352917947]
 position = Vector2(0.5000001, 1.0000002)
