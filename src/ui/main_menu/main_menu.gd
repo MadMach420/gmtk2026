@@ -14,7 +14,7 @@ func _on_continue_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	SceneLoader.load_scene(initial_scene)
+	SceneManager.load_first_level()
 
 
 func _on_options_pressed() -> void:

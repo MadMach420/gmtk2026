@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Systems="*uid://q1np2ng6kpgm"
 SceneLoader="*uid://33jry8f4be5i"
+SceneManager="*uid://cw0vibtb757c"
 
 [display]
 
