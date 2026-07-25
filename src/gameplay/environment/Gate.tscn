@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyqk6yp5aqfba" path="res://src/gameplay/environment/gate.gd" id="1_bnh5c"]
 [ext_resource type="Texture2D" uid="uid://bc1ayuixxupfe" path="res://icon.svg" id="1_gy6ce"]
+[ext_resource type="AudioStream" uid="uid://vym3p3tbo8ji" path="res://assets/sounds/sfx/gate_moving.mp3" id="3_iltba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srgef"]
 size = Vector2(20, 78)
@@ -16,3 +17,7 @@ texture = ExtResource("1_gy6ce")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861596265]
 scale = Vector2(0.41172844, 0.41172844)
 shape = SubResource("RectangleShape2D_srgef")
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="." unique_id=1468769353]
+stream = ExtResource("3_iltba")
+bus = &"SFX"

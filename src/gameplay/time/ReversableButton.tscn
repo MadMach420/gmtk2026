@@ -116,9 +116,11 @@ autoplay = "released"
 
 [node name="PressSound" type="AudioStreamPlayer2D" parent="." unique_id=761030411]
 stream = ExtResource("4_skq81")
+bus = &"SFX"
 
 [node name="ReleaseSound" type="AudioStreamPlayer2D" parent="." unique_id=454235904]
 stream = ExtResource("5_3a00t")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394561142]
 libraries/ = SubResource("AnimationLibrary_fb0vn")

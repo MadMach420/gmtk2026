@@ -113,6 +113,7 @@ autoplay = "right"
 
 [node name="LeverPullSound" type="AudioStreamPlayer2D" parent="." unique_id=1082465981]
 stream = ExtResource("4_crpdt")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730879132]
 libraries/ = SubResource("AnimationLibrary_0uwmx")

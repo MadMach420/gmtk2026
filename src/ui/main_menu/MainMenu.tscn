@@ -135,6 +135,7 @@ text = "Placeholderowa nazwa"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1187637591]
 stream = ExtResource("4_mlydd")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
