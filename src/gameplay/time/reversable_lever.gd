@@ -10,6 +10,7 @@ var is_on = false
 var player_on_lever = false
 
 func _process(delta: float) -> void:
+	if time_system.is_rewinding: return
 	if player_on_lever and Input.is_action_just_pressed("interact"):
 		toggled.emit(!is_on)
 
