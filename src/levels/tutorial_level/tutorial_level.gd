@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start_loop"):
 		if tutorial_hud: tutorial_hud.queue_free()
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and tutorial_hud:
 		tutorial_prompt_index += 1
 		if tutorial_prompt_index < len(TUTORIAL_PROMPTS):
 			tutorial_text.text = TUTORIAL_PROMPTS[tutorial_prompt_index]

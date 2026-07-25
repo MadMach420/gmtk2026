@@ -8,6 +8,7 @@ enum GateDirection { UP, DOWN }
 
 @onready var closed_position: Vector2 = global_position
 @onready var opened_position: Vector2 = _get_opened_position()
+@onready var move_sound: AudioStreamPlayer2D = $MoveSound
 
 var _tween: Tween
 
@@ -17,9 +18,11 @@ func _ready() -> void:
 	opened_position = _get_opened_position()
 
 func open() -> void:
+	move_sound.play()
 	_move_to(opened_position)
 
 func close() -> void:
+	move_sound.play()
 	_move_to(closed_position)
 
 func stop() -> void:
