@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bru6eh5bnf2yu"]
+
+[ext_resource type="Script" uid="uid://cqu2mgeitwwtw" path="res://src/gameplay/interactable/collectible/collectible.gd" id="1_vhqg3"]
+[ext_resource type="Texture2D" uid="uid://bc1ayuixxupfe" path="res://icon.svg" id="2_7iqgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndma3"]
+size = Vector2(128, 128)
+
+[node name="ExampleCollectible" type="Area2D" unique_id=32695839]
+script = ExtResource("1_vhqg3")
+metadata/_custom_type_script = "uid://cqu2mgeitwwtw"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1208801613]
+texture = ExtResource("2_7iqgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649089120]
+shape = SubResource("RectangleShape2D_ndma3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
