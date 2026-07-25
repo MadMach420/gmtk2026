@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c7v1ta8a2q6ud"]
+
+[ext_resource type="Script" uid="uid://cqu2mgeitwwtw" path="res://src/gameplay/interactable/collectible/collectible.gd" id="1_ndma3"]
+
+[node name="Collectible" type="Area2D" unique_id=968148794]
+script = ExtResource("1_ndma3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

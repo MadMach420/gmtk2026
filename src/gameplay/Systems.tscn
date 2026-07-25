@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://q1np2ng6kpgm"]
 
 [ext_resource type="Script" uid="uid://bd0kw83xso206" path="res://src/gameplay/time/time_system.gd" id="1_nddxi"]
+[ext_resource type="Script" uid="uid://blj7alweh370j" path="res://src/gameplay/collectibles_system.gd" id="2_yuduh"]
 
 [node name="Systems" type="Node" unique_id=1118505382]
 
@@ -8,5 +9,9 @@
 unique_name_in_owner = true
 script = ExtResource("1_nddxi")
 loop_length_s = 12
+
+[node name="CollectiblesSystem" type="Node" parent="." unique_id=404643271]
+unique_name_in_owner = true
+script = ExtResource("2_yuduh")
 
 [connection signal="loop_ended" from="TimeSystem" to="TimeSystem" method="_on_loop_ended"]
