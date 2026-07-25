@@ -281,27 +281,22 @@ position = Vector2(0, 89)
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8wq4x")
 
-[node name="TutorialHud" type="Node2D" parent="." unique_id=1876176487]
-position = Vector2(-105, 33)
-
-[node name="Panel" type="Panel" parent="TutorialHud" unique_id=70654807]
-offset_left = -5.0
-offset_top = -4.0
-offset_right = 215.0
-offset_bottom = 45.0
+[node name="TutorialHud" type="CanvasLayer" parent="." unique_id=2132011924]
 
 [node name="Label" type="Label" parent="TutorialHud" unique_id=389698279]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 213.0
-offset_bottom = 45.0
+offset_left = 22.0
+offset_top = -101.0
+offset_right = 235.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("8_htnf0")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 24
 text = "Use A/D or Left/Right to move
 Use E to interact
 Use SPACE to start the time loop"
