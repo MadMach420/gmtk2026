@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3ysnvavle5fn" path="res://src/gameplay/time/reversable_lever.gd" id="1_co1mx"]
 [ext_resource type="Texture2D" uid="uid://c43ximm1yx2wi" path="res://assets/sprites/KraftoweAssety/LevelLeft.png" id="2_co1mx"]
 [ext_resource type="Texture2D" uid="uid://bsvbetkhrvg63" path="res://assets/sprites/KraftoweAssety/LevelRight.png" id="3_crpdt"]
+[ext_resource type="AudioStream" uid="uid://bwa2bec1si080" path="res://assets/sounds/sfx/lever_pull.mp3" id="4_crpdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2tvh"]
 size = Vector2(6, 10)
@@ -34,6 +35,66 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="Animation" id="Animation_rsd02"]
+resource_name = "left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeverPullSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"left"]
+}
+
+[sub_resource type="Animation" id="Animation_wjecd"]
+resource_name = "right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeverPullSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uwmx"]
+_data = {
+&"left": SubResource("Animation_rsd02"),
+&"right": SubResource("Animation_wjecd")
+}
+
 [node name="ReversableLever" type="Node2D" unique_id=1083719135]
 script = ExtResource("1_co1mx")
 metadata/_custom_type_script = "uid://gpaibwtghchp"
@@ -49,6 +110,12 @@ position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_8wq4x")
 animation = &"right"
 autoplay = "right"
+
+[node name="LeverPullSound" type="AudioStreamPlayer2D" parent="." unique_id=1082465981]
+stream = ExtResource("4_crpdt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730879132]
+libraries/ = SubResource("AnimationLibrary_0uwmx")
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

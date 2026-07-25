@@ -5,6 +5,7 @@ class_name ReversableLever
 signal toggled(is_on: bool)
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_on = false
 var player_on_lever = false
@@ -41,9 +42,9 @@ func _on_toggled(is_on: bool) -> void:
 	self.is_on = is_on
 	 
 	if self.is_on:
-		animated_sprite_2d.play("left")
+		animation_player.play("left")
 	else:
-		animated_sprite_2d.play("right")
+		animation_player.play("right")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
