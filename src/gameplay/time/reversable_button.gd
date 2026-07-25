@@ -3,6 +3,7 @@ class_name ReversableButton
 
 signal toggled(is_pressed: bool)
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_pressed = false
@@ -46,6 +47,6 @@ func _on_toggled(is_pressed: bool) -> void:
 	self.is_pressed = is_pressed
 	
 	if self.is_pressed:
-		animated_sprite_2d.play("pressed")
+		animation_player.play("press")
 	else:
-		animated_sprite_2d.play("released")
+		animation_player.play("release")
