@@ -32,11 +32,13 @@ func _start_rewind() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if time_system.is_rewinding: return
 	if body is CharacterBody2D or body is RigidBody2D:
 		toggled.emit(true)
 		
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	if time_system.is_rewinding: return
 	if body is CharacterBody2D or body is RigidBody2D:
 		toggled.emit(false)
 

@@ -4,6 +4,7 @@ const MAIN_MENU_PATH: NodePath = "res://src/ui/main_menu/MainMenu.tscn"
 const BEGGINING_CUTSCENE_PATH = "" # nalezy to wypelnic
 const LEVEL_PATHS_IN_ORDER: Array[NodePath] = [
 	"res://src/levels/tutorial_level/TutorialLevel.tscn",
+	"res://src/levels/szymon_level/SzymonLevel.tscn",
 	"res://src/levels/janek_level/JanekLevel.tscn"
 ]
 const FINAL_CUTSCENE_PATH = "" # nalezy to wypelnic
@@ -13,6 +14,9 @@ var current_scene_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process(false)
+	if OS.is_debug_build():
+		load_first_level()
+		return
 	SceneLoader.load_scene(MAIN_MENU_PATH)
 
 func load_beginning_cutscene() -> void:

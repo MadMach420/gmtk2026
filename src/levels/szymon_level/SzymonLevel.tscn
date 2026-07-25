@@ -1,16 +1,18 @@
-[gd_scene format=4 uid="uid://d12bcnyop8kln"]
+[gd_scene format=4 uid="uid://i72fnugk0puj"]
 
-[ext_resource type="Script" uid="uid://ck5l5ueojhsrd" path="res://src/levels/tutorial_level/tutorial_level.gd" id="1_tuiyk"]
-[ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="2_45mmt"]
-[ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_tyshq"]
-[ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="4_vmkji"]
-[ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="5_f40tv"]
-[ext_resource type="FontFile" uid="uid://dhs6onrljd0h2" path="res://assets/fonts/Bitmgothic.ttf" id="8_htnf0"]
-[ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="9_08lep"]
-[ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="10_nm134"]
+[ext_resource type="Script" uid="uid://0o2ntt8l3iuu" path="res://src/levels/szymon_level/szymon_level.gd" id="1_mt0qo"]
+[ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="2_7ak7s"]
+[ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_pi73b"]
+[ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="4_mf35k"]
+[ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="5_dbu8o"]
+[ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="6_nrcj8"]
+[ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="7_63egj"]
+[ext_resource type="PackedScene" uid="uid://c648duh7w3i8m" path="res://src/gameplay/environment/Gate.tscn" id="8_x11dd"]
+[ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="9_ffx8k"]
+[ext_resource type="PackedScene" uid="uid://dsnnkn4jg1qyl" path="res://src/gameplay/time/timeline/Timeline.tscn" id="10_fvvxk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
-texture = ExtResource("2_45mmt")
+texture = ExtResource("2_7ak7s")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -107,7 +109,7 @@ texture = ExtResource("2_45mmt")
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dr327"]
-texture = ExtResource("3_tyshq")
+texture = ExtResource("3_pi73b")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -210,7 +212,7 @@ texture = ExtResource("3_tyshq")
 6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6gs1"]
-texture = ExtResource("4_vmkji")
+texture = ExtResource("4_mf35k")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -245,8 +247,8 @@ sources/2 = SubResource("TileSetAtlasSource_t6gs1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wq4x"]
 size = Vector2(32, 9)
 
-[node name="TutorialLevel" type="Node2D" unique_id=1831916148]
-script = ExtResource("1_tuiyk")
+[node name="SzymonLevel" type="Node2D" unique_id=1831916148]
+script = ExtResource("1_mt0qo")
 metadata/_custom_type_script = "uid://clw52hhkjs132"
 
 [node name="World" type="Node2D" parent="." unique_id=678546020]
@@ -256,22 +258,30 @@ tile_map_data = PackedByteArray("AAD8/wMAAQAHAAQAAAD9/wMAAQAHAAQAAAD+/wMAAQAHAAQ
 tile_set = SubResource("TileSet_8wq4x")
 
 [node name="Foreground" type="TileMapLayer" parent="World" unique_id=492271535]
-tile_map_data = PackedByteArray("AAAHAAUAAQALAAEAAAAHAAQAAQALAAEAAAAHAAMAAQALAAEAAAAHAAIAAQALAAEAAAAHAAEAAQALAAEAAAAHAAAAAQALAAEAAAAHAP//AQALAAEAAAAHAP7/AQALAAEAAAAHAP3/AQALAAEAAAAHAPz/AQALAAEAAAAHAPv/AQALAAEAAAAHAPr/AQALAAEAAAD4//r/AQALAAEAAAD4//v/AQALAAEAAAD4//z/AQALAAEAAAD4//3/AQALAAEAAAD4//7/AQALAAEAAAD4////AQALAAEAAAD4/wAAAQALAAEAAAD4/wEAAQALAAEAAAD4/wIAAQALAAEAAAD4/wMAAQALAAEAAAD4/wQAAQALAAEAAAD4/wUAAQALAAEAAAD5//r/AQALAAEAAAD6//r/AQALAAEAAAD7//r/AQALAAEAAAD8//r/AQALAAEAAAD9//r/AQALAAEAAAD+//r/AQALAAEAAAABAPr/AQALAAEAAAACAPr/AQALAAEAAAADAPr/AQALAAEAAAAEAPr/AQALAAEAAAAFAPr/AQALAAEAAAAGAPr/AQALAAEAAAD5/wUAAQALAAEAAAD6/wUAAQALAAEAAAD7/wUAAQALAAEAAAD8/wUAAQALAAEAAAD9/wUAAQALAAEAAAD+/wUAAQALAAEAAAABAAUAAQALAAEAAAACAAUAAQALAAEAAAADAAUAAQALAAEAAAAEAAUAAQALAAEAAAAFAAUAAQALAAEAAAAGAAUAAQALAAEAAAD/////AQALAAEAAAAAAP//AQALAAEAAAAAAAAAAQALAAEAAAD//wAAAQALAAEAAAD+////AQALAAEAAAD+/wAAAQALAAEAAAABAAAAAQALAAEAAAABAP//AQALAAEAAAACAP//AQALAAEAAAACAAAAAQALAAEAAAD9////AQALAAEAAAD9/wAAAQALAAEAAAADAP//AQALAAEAAAADAAAAAQALAAEAAAD8////AQALAAEAAAD8/wAAAQALAAEAAAD7////AQALAAEAAAD7/wAAAQALAAEAAAD6////AQALAAEAAAD6/wAAAQALAAEAAAAEAP//AQALAAEAAAAEAAAAAQALAAEAAAAFAP//AQALAAEAAAAFAAAAAQALAAEAAAD//wIAAQALAAEAAAAAAAIAAQALAAEAAAAAAAEAAQALAAEAAAD//wEAAQALAAEAAAA=")
+tile_map_data = PackedByteArray("AAAHAAUAAQALAAEAAAAHAAQAAQALAAEAAAAHAAMAAQALAAEAAAAHAAIAAQALAAEAAAAHAAEAAQALAAEAAAAHAAAAAQALAAEAAAAHAP//AQALAAEAAAAHAP7/AQALAAEAAAAHAP3/AQALAAEAAAAHAPz/AQALAAEAAAAHAPv/AQALAAEAAAAHAPr/AQALAAEAAAD4//r/AQALAAEAAAD4//v/AQALAAEAAAD4//z/AQALAAEAAAD4//3/AQALAAEAAAD4//7/AQALAAEAAAD4////AQALAAEAAAD4/wAAAQALAAEAAAD4/wEAAQALAAEAAAD4/wIAAQALAAEAAAD4/wMAAQALAAEAAAD4/wQAAQALAAEAAAD4/wUAAQALAAEAAAD5//r/AQALAAEAAAD6//r/AQALAAEAAAD7//r/AQALAAEAAAD8//r/AQALAAEAAAD9//r/AQALAAEAAAD+//r/AQALAAEAAAABAPr/AQALAAEAAAACAPr/AQALAAEAAAADAPr/AQALAAEAAAAEAPr/AQALAAEAAAAFAPr/AQALAAEAAAAGAPr/AQALAAEAAAD5/wUAAQALAAEAAAD6/wUAAQALAAEAAAD7/wUAAQALAAEAAAD8/wUAAQALAAEAAAD9/wUAAQALAAEAAAD+/wUAAQALAAEAAAABAAUAAQALAAEAAAACAAUAAQALAAEAAAADAAUAAQALAAEAAAAEAAUAAQALAAEAAAAFAAUAAQALAAEAAAAGAAUAAQALAAEAAAD5////AQALAAEAAAD6////AQALAAEAAAD7////AQALAAEAAAD8////AQALAAEAAAD9////AQALAAEAAAD+////AQALAAEAAAD/////AQALAAEAAAAAAP//AQALAAEAAAABAP//AQALAAEAAAACAP//AQALAAEAAAADAP//AQALAAEAAAABAPv/AQALAAEAAAABAPz/AQALAAEAAAACAPz/AQALAAEAAAADAPz/AQALAAEAAAAEAPz/AQALAAEAAAAFAPz/AQALAAEAAAAGAPz/AQALAAEAAAAGAPv/AQALAAEAAAAFAPv/AQALAAEAAAAEAPv/AQALAAEAAAADAPv/AQALAAEAAAACAPv/AQALAAEAAAADAAAAAQALAAEAAAADAAEAAQALAAEAAAACAAEAAQALAAEAAAABAAEAAQALAAEAAAAAAAEAAQALAAEAAAD//wEAAQALAAEAAAD+/wEAAQALAAEAAAD9/wEAAQALAAEAAAD8/wEAAQALAAEAAAD7/wEAAQALAAEAAAD7/wAAAQALAAEAAAD6/wAAAQALAAEAAAD6/wEAAQALAAEAAAD5/wEAAQALAAEAAAD5/wAAAQALAAEAAAD8/wAAAQALAAEAAAD9/wAAAQALAAEAAAD+/wAAAQALAAEAAAD//wAAAQALAAEAAAAAAAAAAQALAAEAAAABAAAAAQALAAEAAAACAAAAAQALAAEAAAA=")
 tile_set = SubResource("TileSet_8wq4x")
 
 [node name="Entities" type="Node2D" parent="." unique_id=619146661]
 
-[node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("5_f40tv")]
+[node name="ReversableButton" parent="Entities" unique_id=1932701450 instance=ExtResource("9_ffx8k")]
+position = Vector2(-83, -15)
+object_color_code = Color(0.84263474, 3.5616756e-06, 4.813075e-07, 1)
+
+[node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("5_dbu8o")]
 position = Vector2(0, -128)
+
+[node name="Gate" parent="Entities" unique_id=1909549645 instance=ExtResource("8_x11dd")]
+position = Vector2(40, -32)
+move_distance = 32.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
 zoom = Vector2(4, 4)
 
 [node name="Clocks" type="Node2D" parent="." unique_id=595288435]
 
-[node name="BackgroundClock" parent="Clocks" unique_id=2147459749 instance=ExtResource("9_08lep")]
+[node name="BackgroundClock" parent="Clocks" unique_id=2147459749 instance=ExtResource("6_nrcj8")]
 
-[node name="ForegroundClock" parent="Clocks" unique_id=292941288 instance=ExtResource("10_nm134")]
+[node name="ForegroundClock" parent="Clocks" unique_id=292941288 instance=ExtResource("7_63egj")]
 position = Vector2(104, -74)
 
 [node name="NextLevelTrigger" type="Area2D" parent="." unique_id=205503598]
@@ -281,25 +291,7 @@ position = Vector2(0, 89)
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8wq4x")
 
-[node name="TutorialHud" type="CanvasLayer" parent="." unique_id=2132011924]
-
-[node name="Label" type="Label" parent="TutorialHud" unique_id=389698279]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -101.0
-offset_right = 235.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("8_htnf0")
-theme_override_font_sizes/font_size = 24
-text = "Use A/D or Left/Right to move
-Use E to interact
-Use SPACE to start the time loop"
+[node name="Timeline" parent="." unique_id=596911782 instance=ExtResource("10_fvvxk")]
 
 [connection signal="player_entered_transition_zone" from="." to="." method="_on_player_entered_transition_zone"]
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]
