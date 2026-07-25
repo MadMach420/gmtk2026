@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dfpodxqsas4cm"]
+
+[ext_resource type="Script" uid="uid://b26yhukaq0qvn" path="res://src/gameplay/time/reversable_platform.gd" id="1_jh6u3"]
+[ext_resource type="PackedScene" uid="uid://bltp24ltf5111" path="res://src/gameplay/environment/Platform.tscn" id="2_ci2yu"]
+
+[node name="ReversablePlatform" type="Node2D" unique_id=1542021401]
+script = ExtResource("1_jh6u3")
+metadata/_custom_type_script = "uid://gpaibwtghchp"
+
+[node name="Platform" parent="." unique_id=1500464514 instance=ExtResource("2_ci2yu")]

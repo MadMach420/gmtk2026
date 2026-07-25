@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bltp24ltf5111"]
+
+[ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="1_de15e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6a36"]
+size = Vector2(46, 10)
+
+[node name="Platform" type="AnimatableBody2D" unique_id=1500464514]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205833928]
+texture = ExtResource("1_de15e")
+region_enabled = true
+region_rect = Rect2(33, 0, 46, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237048568]
+shape = SubResource("RectangleShape2D_f6a36")
