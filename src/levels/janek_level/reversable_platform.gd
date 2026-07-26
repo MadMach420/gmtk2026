@@ -5,7 +5,6 @@ extends "res://src/gameplay/time/reversable_platform.gd"
 func _ready() -> void:
 	super._ready()
 	lever.toggled.connect(_on_lever_toggled)
-	time_system.loop_ended.connect(_on_loop_ended)
 	time_system.rewind_ended.connect(_on_rewind_ended)
 
 func _on_loop_ended(delta: float) -> void:
