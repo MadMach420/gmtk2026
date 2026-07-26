@@ -859,7 +859,7 @@ object_color_code = Color(1, 1, 1, 1)
 
 [node name="ReversableButton" parent="Entities" unique_id=1932701450 instance=ExtResource("7_43bu0")]
 position = Vector2(40, -15)
-object_color_code = Color(0, 1, 1, 1)
+object_color_code = Color(1, 1, 1, 1)
 
 [node name="Platform" parent="Entities" unique_id=1500464514 instance=ExtResource("10_uku4o")]
 position = Vector2(-1, 86)
