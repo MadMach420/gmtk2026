@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 ## Has the player pressed the interact action to start the level timer? (Loop or rewind)
-var has_started_timer = false
+var can_start_timer = true
 
 const SPEED = 100.0
 const PUSH_FORCE = 50
@@ -25,21 +25,20 @@ var previous_velocity: float = 0.0  # stores pre-collision velocity
 
 
 func _ready() -> void:
-	time_system.loop_started.connect(func(): has_started_timer = true)
-	time_system.loop_ended.connect(func(): has_started_timer = false)
-	time_system.rewind_started.connect(func(): has_started_timer = true)
-	time_system.rewind_ended.connect(func(): has_started_timer = false)
+	time_system.loop_started.connect(func(): can_start_timer = false)
+	time_system.loop_ended.connect(func(): can_start_timer = true)
+	time_system.rewind_started.connect(func(): can_start_timer = false)
+	time_system.rewind_ended.connect(func(): can_start_timer = false)
 
 func _physics_process(delta: float) -> void:
-	if not has_started_timer:
+	if can_start_timer:
 		if Input.is_action_just_pressed("start_loop"):
-			has_started_timer = true
 			time_system.start_timer()
 
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if has_started_timer:
+	if not can_start_timer:
 		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis("move_left", "move_right")
 		
