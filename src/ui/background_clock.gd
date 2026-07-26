@@ -7,7 +7,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = str(time_system.loop_length_s)
-	label.modulate.a = 0.2
+	label.modulate.a = 0.4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

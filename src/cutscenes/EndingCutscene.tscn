@@ -1,0 +1,259 @@
+[gd_scene format=4 uid="uid://bhetmic1uyfn0"]
+
+[ext_resource type="Texture2D" uid="uid://b66i5g4mtwhtk" path="res://assets/sprites/Dungeon Tile Set.png" id="1_xy85h"]
+[ext_resource type="Texture2D" uid="uid://d3mww857m47qd" path="res://assets/sprites/KraftoweAssety/Wampir2.png" id="2_8bsh2"]
+[ext_resource type="Texture2D" uid="uid://ci47p0tt8qnwl" path="res://assets/sprites/coffin.png" id="2_tboa3"]
+[ext_resource type="Script" uid="uid://b11o8oi13jnd4" path="res://src/cutscenes/vamp.gd" id="3_6y67u"]
+[ext_resource type="AudioStream" uid="uid://c216jl1cd2u3p" path="res://assets/sounds/sfx/snoring.mp3" id="5_kvr8y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tboa3"]
+texture = ExtResource("1_xy85h")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+5:8/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+5:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+5:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+10:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+5:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+2:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8wq4x"]
+sources/1 = SubResource("TileSetAtlasSource_tboa3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wq4x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_kvr8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vamp:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -121)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6y67u"]
+resource_name = "cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vamp:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1666666, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -121), Vector2(0, 56), Vector2(0, 56), Vector2(27, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.0666666, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.0666666),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvr8y"]
+_data = {
+&"RESET": SubResource("Animation_kvr8y"),
+&"cutscene": SubResource("Animation_6y67u")
+}
+
+[node name="Node2D" type="Node2D" unique_id=122458282]
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=109918699]
+tile_map_data = PackedByteArray("AAD4/wQAAQACAAEAAAAHAAQAAQACAAEAAAD+/wQAAQACAAEAAAD//wQAAQACAAEAAAAAAAQAAQACAAEAAAABAAQAAQACAAEAAAACAAQAAQACAAEAAAADAAQAAQACAAEAAAAEAAQAAQACAAEAAAAFAAQAAQACAAEAAAAGAAQAAQACAAEAAAAGAAMAAQACAAIAAAD5/wMAAQACAAIAAAD7/wIAAQACAAIAAAD7/wEAAQACAAIAAAD7/wAAAQACAAIAAAD7////AQACAAIAAAD7//7/AQACAAIAAAD7//3/AQACAAIAAAD7//z/AQACAAIAAAD6/wIAAQACAAIAAAD6/wEAAQACAAIAAAD6/wAAAQACAAIAAAD6////AQACAAIAAAD6//7/AQACAAIAAAD6//3/AQACAAIAAAD6//z/AQACAAIAAAAEAAIAAQACAAIAAAAEAAEAAQACAAIAAAAEAAAAAQACAAIAAAAEAP//AQACAAIAAAAEAP7/AQACAAIAAAAEAP3/AQACAAIAAAAEAPz/AQACAAIAAAAFAPz/AQACAAIAAAAFAP3/AQACAAIAAAAFAP7/AQACAAIAAAAFAAAAAQACAAIAAAAFAAEAAQACAAIAAAAFAAIAAQACAAIAAAD8/wMAAQACAAIAAAADAAMAAQACAAIAAAAEAAMAAQACAAIAAAAFAAMAAQACAAIAAAD7/wMAAQACAAIAAAD6/wMAAQACAAIAAAD5//v/AQACAAIAAAADAPv/AQACAAIAAAD8//v/AQACAAIAAAAGAPv/AQACAAIAAAAEAPv/AQACAAIAAAD6//v/AQACAAIAAAD7//v/AQACAAIAAAAFAPv/AQACAAIAAAD5/wQAAQACAAEAAAD6/wQAAQACAAEAAAD7/wQAAQACAAEAAAD8/wQAAQACAAEAAAD9/wQAAQACAAEAAAD4/wMAAQACAAIAAAD9/wMAAQACAAIAAAD+/wMAAQACAAIAAAD//wMAAQACAAIAAAAAAAMAAQACAAIAAAABAAMAAQACAAIAAAACAAMAAQACAAIAAAAHAAMAAQACAAIAAAAHAAIAAQACAAIAAAAGAAIAAQACAAIAAAADAAIAAQACAAIAAAACAAIAAQACAAIAAAABAAIAAQACAAIAAAAAAAIAAQACAAIAAAD//wIAAQACAAIAAAD+/wIAAQACAAIAAAD9/wIAAQACAAIAAAD8/wIAAQACAAIAAAD5/wIAAQACAAIAAAD4/wIAAQACAAIAAAD4/wEAAQACAAIAAAD5/wEAAQAKAAYAAAD8/wEAAQAKAAIAAAD9/wEAAQALAAIAAAD+/wEAAQAKAAYAAAD//wEAAQACAAIAAAAAAAEAAQACAAIAAAABAAEAAQACAAIAAAACAAEAAQACAAIAAAADAAEAAQACAAIAAAAGAAEAAQACAAIAAAAHAAEAAQALAAYAAAAHAAAAAQACAAIAAAAGAAAAAQALAAYAAAADAAAAAQACAAIAAAACAAAAAQACAAIAAAABAAAAAQACAAIAAAAAAAAAAQACAAIAAAD//wAAAQACAAIAAAD+/wAAAQACAAIAAAD9/wAAAQALAAEAAAD8/wAAAQAKAAEAAAD5/wAAAQACAAIAAAD4/wAAAQACAAIAAAD4////AQACAAIAAAD5////AQACAAIAAAD8////AQACAAIAAAD9////AQACAAIAAAD+////AQACAAIAAAD/////AQACAAIAAAAAAP//AQACAAIAAAABAP//AQACAAIAAAACAP//AQAKAAQAAAADAP//AQALAAQAAAAHAP7/AQACAAIAAAAGAP7/AQACAAIAAAADAP7/AQALAAMAAAACAP7/AQAKAAMAAAABAP7/AQACAAIAAAAAAP7/AQALAAYAAAD///7/AQACAAIAAAD+//7/AQACAAIAAAD9//7/AQACAAIAAAD8//7/AQACAAIAAAD5//7/AQALAAcAAAD4//7/AQACAAIAAAD4//3/AQACAAIAAAD5//3/AQACAAIAAAD8//3/AQACAAIAAAD9//3/AQACAAIAAAD+//3/AQACAAIAAAD///3/AQACAAIAAAAAAP3/AQALAAcAAAABAP3/AQACAAIAAAACAP3/AQACAAIAAAADAP3/AQACAAIAAAAGAP3/AQACAAIAAAAHAP3/AQACAAIAAAAHAPz/AQACAAIAAAAGAPz/AQACAAIAAAADAPz/AQACAAIAAAACAPz/AQACAAIAAAABAPz/AQACAAIAAAAAAPz/AQACAAIAAAD///z/AQACAAIAAAD+//z/AQACAAIAAAD5//z/AQACAAIAAAD4//z/AQACAAIAAAD8//z/AQACAAIAAAD9//z/AQACAAIAAAD4//v/AQACAAIAAAD9//v/AQACAAIAAAD+//v/AQAKAAYAAAD///v/AQACAAIAAAAAAPv/AQACAAIAAAABAPv/AQACAAIAAAACAPv/AQACAAIAAAAHAPv/AQACAAIAAAAHAPr/AQACAAIAAAAGAPr/AQACAAIAAAAFAPr/AQACAAIAAAAEAPr/AQACAAIAAAADAPr/AQACAAIAAAACAPr/AQACAAIAAAABAPr/AQACAAIAAAAAAPr/AQACAAIAAAD///r/AQACAAIAAAD+//r/AQACAAIAAAD9//r/AQACAAIAAAD8//r/AQACAAIAAAD7//r/AQACAAIAAAD6//r/AQACAAIAAAD5//r/AQACAAIAAAD4//r/AQACAAIAAAAFAP//AQACAAYAAAAGAP//AQACAAYAAAAHAP//AQACAAYAAAA=")
+tile_set = SubResource("TileSet_8wq4x")
+
+[node name="Foreground" type="TileMapLayer" parent="." unique_id=520465048]
+tile_map_data = PackedByteArray("AAD4/wQAAQACAAEAAAAHAAQAAQACAAEAAAD+/wQAAQACAAEAAAD//wQAAQACAAEAAAAAAAQAAQACAAEAAAABAAQAAQACAAEAAAACAAQAAQACAAEAAAADAAQAAQACAAEAAAAEAAQAAQACAAEAAAAFAAQAAQACAAEAAAAGAAQAAQACAAEAAAAGAAMAAQAGAAEAAAD5/wMAAQAFAAEAAAD7/wIAAQADAAYAAAD7/wEAAQADAAYAAAD7/wAAAQADAAYAAAD7////AQADAAYAAAD7//7/AQADAAYAAAD7//3/AQADAAYAAAD7//z/AQADAAYAAAD6/wIAAQABAAYAAAD6/wEAAQABAAYAAAD6/wAAAQABAAYAAAD6////AQABAAYAAAD6//7/AQABAAYAAAD6//3/AQABAAYAAAD6//z/AQABAAYAAAAEAAIAAQABAAYAAAAEAAEAAQABAAYAAAAEAAAAAQABAAYAAAAEAP//AQABAAYAAAAEAP7/AQABAAYAAAAEAP3/AQABAAYAAAAEAPz/AQABAAYAAAAFAPz/AQADAAYAAAAFAP3/AQADAAYAAAAFAP7/AQADAAYAAAAFAP//AQADAAYAAAAFAAAAAQADAAYAAAAFAAEAAQADAAYAAAAFAAIAAQADAAYAAAD8/wMAAQAGAAEAAAADAAMAAQAFAAEAAAAEAAMAAQAFAAIAAAAFAAMAAQAGAAIAAAD7/wMAAQAGAAIAAAD6/wMAAQAFAAIAAAD5//v/AQAGAAEAADADAPv/AQAGAAEAADD8//v/AQAFAAEAADAGAPv/AQAFAAEAADAEAPv/AQAGAAIAADD6//v/AQAGAAIAADD7//v/AQAFAAIAADAFAPv/AQAFAAIAADD5/wQAAQACAAEAAAD6/wQAAQACAAEAAAD7/wQAAQACAAEAAAD8/wQAAQACAAEAAAD9/wQAAQACAAEAAAD4/wUAAQACAAIAAAD5/wUAAQACAAIAAAD6/wUAAQACAAIAAAD7/wUAAQACAAIAAAD8/wUAAQACAAIAAAD9/wUAAQACAAIAAAD+/wUAAQACAAIAAAD//wUAAQACAAIAAAAAAAUAAQACAAIAAAABAAUAAQACAAIAAAACAAUAAQACAAIAAAADAAUAAQACAAIAAAAEAAUAAQACAAIAAAAFAAUAAQACAAIAAAAGAAUAAQACAAIAAAAHAAUAAQACAAIAAAD9/wMAAQADAA4AAAD+/wMAAQADAA4AAAAHAAMAAQADAA4AAAD4/wMAAQABAA4AAAD6//r/AQACAAIAAAD7//r/AQACAAIAAAD8//r/AQADAAIAAAAGAPr/AQADAAIAAAADAPr/AQABAAIAAAD5//r/AQABAAIAAAAEAPr/AQACAAIAAAAFAPr/AQACAAIAAAA=")
+tile_set = SubResource("TileSet_8wq4x")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1822584525]
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=973821730]
+position = Vector2(29, 49)
+scale = Vector2(0.0046875374, 0.0046875374)
+texture = ExtResource("2_tboa3")
+
+[node name="Vamp" type="Sprite2D" parent="." unique_id=522320814]
+position = Vector2(0, -121)
+texture = ExtResource("2_8bsh2")
+script = ExtResource("3_6y67u")
+
+[node name="Panel" type="Panel" parent="." unique_id=477664702]
+offset_left = -130.0
+offset_top = -100.0
+offset_right = 129.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8wq4x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=292477251]
+libraries/ = SubResource("AnimationLibrary_kvr8y")
+autoplay = &"cutscene"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2025916709]
+stream = ExtResource("5_kvr8y")
