@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bltp24ltf5111"]
 
 [ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="1_de15e"]
+[ext_resource type="Script" uid="uid://dx83w4vpwlf8b" path="res://src/gameplay/environment/platform.gd" id="1_phwoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6a36"]
 size = Vector2(46, 10)
 
 [node name="Platform" type="AnimatableBody2D" unique_id=1500464514]
+script = ExtResource("1_phwoi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=205833928]
 texture = ExtResource("1_de15e")
