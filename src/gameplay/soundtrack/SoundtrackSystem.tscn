@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cccpyjvjmmrso"]
+
+[ext_resource type="Script" uid="uid://tlm11cc2vb10" path="res://src/gameplay/soundtrack/soundtrack_system.gd" id="1_mhidw"]
+[ext_resource type="AudioStream" uid="uid://dyaayse65hlk8" path="res://assets/sounds/level_music.wav" id="2_iynnv"]
+[ext_resource type="AudioStream" uid="uid://h2m1mlfqwiqk" path="res://assets/sounds/theme.wav" id="3_86dqq"]
+[ext_resource type="AudioStream" uid="uid://b6631cjb35q74" path="res://assets/sounds/level_music_reverse.wav" id="4_86dqq"]
+
+[node name="SoundtrackSystem" type="Node" unique_id=622006847]
+script = ExtResource("1_mhidw")
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1247434267]
+stream = ExtResource("2_iynnv")
+
+[node name="ThemePlayer" type="AudioStreamPlayer" parent="." unique_id=1025393438]
+stream = ExtResource("3_86dqq")
+
+[node name="LevelMusicReversePlayer" type="AudioStreamPlayer" parent="." unique_id=220118843]
+stream = ExtResource("4_86dqq")

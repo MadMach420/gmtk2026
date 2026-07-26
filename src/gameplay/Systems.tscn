@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd0kw83xso206" path="res://src/gameplay/time/time_system.gd" id="1_nddxi"]
 [ext_resource type="Script" uid="uid://blj7alweh370j" path="res://src/gameplay/collectibles_system.gd" id="2_yuduh"]
+[ext_resource type="PackedScene" uid="uid://cccpyjvjmmrso" path="res://src/gameplay/soundtrack/SoundtrackSystem.tscn" id="3_4rmbm"]
 
 [node name="Systems" type="Node" unique_id=1118505382]
 
@@ -12,5 +13,8 @@ script = ExtResource("1_nddxi")
 [node name="CollectiblesSystem" type="Node" parent="." unique_id=404643271]
 unique_name_in_owner = true
 script = ExtResource("2_yuduh")
+
+[node name="SoundtrackSystem" parent="." unique_id=622006847 instance=ExtResource("3_4rmbm")]
+unique_name_in_owner = true
 
 [connection signal="loop_ended" from="TimeSystem" to="TimeSystem" method="_on_loop_ended"]
