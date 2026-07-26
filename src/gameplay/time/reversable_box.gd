@@ -43,6 +43,9 @@ func _states_equal(a: Dictionary, b: Dictionary, delta_t: float = EPSILON_T) -> 
 func _is_at_rest() -> bool:
 	return body.sleeping
 
+func get_texture() -> Texture2D:
+	return sprite_2d.texture
+
 func apply_push(force: Vector2) -> void:
 	body.apply_central_impulse(force)
 

@@ -2,6 +2,7 @@ extends HBoxContainer
 class_name ObjectTimelineRow
 
 @onready var object_label: Label = $ObjectLabel
+@onready var object_icon: TextureRect = $ObjectIcon
 @onready var track: Control = $Track
 @onready var playhead: ColorRect = $Track/PlayheadCursor
 
@@ -9,9 +10,11 @@ var reversable_object: ReversableObject
 var loop_length: float
 
 func setup(obj: ReversableObject, length: float) -> void:
+	
 	reversable_object = obj
 	loop_length = length
-	object_label.text = "Object"  # Replace with better name/icon
+	
+	_setup_icon(obj)
 	
 	# Connect to the object's live recording signal
 	reversable_object.state_recorded.connect(_on_state_recorded)
@@ -20,6 +23,21 @@ func setup(obj: ReversableObject, length: float) -> void:
 		_add_indicator(snapshot["time"], snapshot["data"])
 	
 	playhead.visible = false
+
+func _setup_icon(obj: ReversableObject) -> void:
+	var texture: Texture2D = null
+	if obj.has_method("get_texture"):
+		texture = obj.get_texture()
+
+	if texture == null:
+		object_label.text = "Object"
+		object_label.visible = true
+		object_icon.visible = false
+	else:
+		object_label.visible = false
+		object_icon.visible = true
+		object_icon.texture = texture
+		#object_icon.scale = Vector2(2, 2)
 
 func _on_state_recorded(time_left: float, data: Dictionary) -> void:
 	_add_indicator(time_left, data)

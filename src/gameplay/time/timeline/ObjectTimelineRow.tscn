@@ -3,20 +3,42 @@
 [ext_resource type="Script" uid="uid://brw4l4c20qvhq" path="res://src/gameplay/time/timeline/object_timeline_row.gd" id="1_0d4b2"]
 
 [node name="ObjectTimelineRow" type="HBoxContainer" unique_id=755496816]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_0d4b2")
 
 [node name="ObjectLabel" type="Label" parent="." unique_id=575253747]
 layout_mode = 2
+
+[node name="ObjectIcon" type="TextureRect" parent="." unique_id=1759885308]
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Track" type="Control" parent="." unique_id=979380035]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PlayheadCursor" type="ColorRect" parent="Track" unique_id=1042578564]
-layout_mode = 0
-offset_left = 35.0
-offset_right = 45.0
-offset_bottom = 20.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(1, 1, 0, 1)
