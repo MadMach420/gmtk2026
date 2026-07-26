@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c648duh7w3i8m" path="res://src/gameplay/environment/Gate.tscn" id="8_x11dd"]
 [ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="9_ffx8k"]
 [ext_resource type="PackedScene" uid="uid://dsnnkn4jg1qyl" path="res://src/gameplay/time/timeline/Timeline.tscn" id="10_fvvxk"]
+[ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="11_enwf0"]
+[ext_resource type="AudioStream" uid="uid://cne44by16ccr0" path="res://assets/sounds/sfx/clock_tock.mp3" id="12_specv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
 texture = ExtResource("2_7ak7s")
@@ -247,9 +249,42 @@ sources/2 = SubResource("TileSetAtlasSource_t6gs1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wq4x"]
 size = Vector2(32, 9)
 
-[node name="SzymonLevel" type="Node2D" unique_id=1831916148]
+[sub_resource type="Animation" id="Animation_aieb4"]
+resource_name = "clock_sound"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SFX/ClockTickSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/ClockTockSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r7pqd"]
+_data = {
+&"clock_sound": SubResource("Animation_aieb4")
+}
+
+[node name="SzymonLevel" type="Node2D" unique_id=125397060]
 script = ExtResource("1_mt0qo")
-metadata/_custom_type_script = "uid://clw52hhkjs132"
 
 [node name="World" type="Node2D" parent="." unique_id=678546020]
 
@@ -293,4 +328,18 @@ shape = SubResource("RectangleShape2D_8wq4x")
 
 [node name="Timeline" parent="." unique_id=596911782 instance=ExtResource("10_fvvxk")]
 
+
+[node name="SFX" type="Node2D" parent="." unique_id=848731352]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SFX" unique_id=1905548665]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_r7pqd")
+
+[node name="ClockTickSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=811921423]
+stream = ExtResource("11_enwf0")
+
+[node name="ClockTockSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=1066255672]
+stream = ExtResource("12_specv")
+
+[connection signal="player_entered_transition_zone" from="." to="." method="_on_player_entered_transition_zone"]
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]
