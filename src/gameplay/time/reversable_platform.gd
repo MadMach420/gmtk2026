@@ -11,6 +11,12 @@ func _ready() -> void:
 func _on_loop_ended(delta: float) -> void:
 	animation_player.pause()
 
+func get_texture() -> Texture2D:
+	var frame_index: int = animation_player.get_frame()
+	var animation_name: String = animation_player.animation
+	var sprite_frames: SpriteFrames = animation_player.get_sprite_frames()
+	var current_texture: Texture2D = sprite_frames.get_frame_texture(animation_name, frame_index)
+	return current_texture
 
 func _start_rewind() -> void:
 	super._start_rewind()

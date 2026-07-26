@@ -26,6 +26,13 @@ func _apply_state_data(data: Dictionary, duration: float) -> void:
 func _is_at_rest() -> bool:
 	return false
 
+func get_texture() -> Texture2D:
+	var frame_index: int = animated_sprite_2d.get_frame()
+	var animation_name: String = animated_sprite_2d.animation
+	var sprite_frames: SpriteFrames = animated_sprite_2d.get_sprite_frames()
+	var current_texture: Texture2D = sprite_frames.get_frame_texture(animation_name, frame_index)
+	return current_texture
+
 # -----------------------
 # Override with super call
 func _start_rewind() -> void:

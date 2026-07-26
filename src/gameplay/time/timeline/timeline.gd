@@ -17,8 +17,8 @@ func _ready() -> void:
 	time_system.loop_started.connect(_on_loop_started)
 	
 	# Register objects that might have loaded before the UI
-	#for obj in time_system.reversable_object_registry.registered_reversable_objects:
-		#_create_row(obj)
+	for obj in time_system.reversable_object_registry.registered_reversable_objects:
+		_create_row(obj)
 
 func _process(delta: float) -> void:
 	# If rewinding, update all playhead cursors
