@@ -20,4 +20,3 @@ shape = SubResource("RectangleShape2D_srgef")
 
 [node name="MoveSound" type="AudioStreamPlayer2D" parent="." unique_id=1468769353]
 stream = ExtResource("3_iltba")
-bus = &"SFX"
