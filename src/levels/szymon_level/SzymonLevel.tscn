@@ -307,6 +307,7 @@ position = Vector2(0, -128)
 
 [node name="Gate" parent="Entities" unique_id=1909549645 instance=ExtResource("8_x11dd")]
 position = Vector2(40, -32)
+object_color_code = Color(1, 0, 0, 1)
 move_distance = 32.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
