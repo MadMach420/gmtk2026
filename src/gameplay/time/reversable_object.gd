@@ -28,6 +28,8 @@ func _ready() -> void:
 	time_system.loop_ended.connect(_record_state)
 	time_system.reversable_object_registry.register_object(self)
 
+func _exit_tree():
+	time_system.reversable_object_registry.unregister_object(self)
 
 func _physics_process(delta: float) -> void:
 	if is_rewinding or time_system.loop_timer.is_stopped():

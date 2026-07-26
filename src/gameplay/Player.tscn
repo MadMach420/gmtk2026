@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://bxujl5s0wu02f"]
 
 [ext_resource type="Script" uid="uid://dx7i03edhtlua" path="res://src/gameplay/player.gd" id="1_epmxn"]
+[ext_resource type="Texture2D" uid="uid://d3mww857m47qd" path="res://assets/sprites/KraftoweAssety/Wampir2.png" id="2_1pai1"]
+[ext_resource type="Texture2D" uid="uid://dhfn7d333gmt5" path="res://assets/sprites/KraftoweAssety/Wampirbieg2.png" id="2_d1bm0"]
 [ext_resource type="Texture2D" uid="uid://chn7q0b6a735j" path="res://assets/sprites/KraftoweAssety/walking.png" id="2_epmxn"]
 [ext_resource type="Script" uid="uid://0anqcuywcav5" path="res://src/gameplay/player_movement.gd" id="3_dnny1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye3m7"]
+atlas = ExtResource("2_d1bm0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5qeu"]
+atlas = ExtResource("2_1pai1")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnny1"]
 atlas = ExtResource("2_epmxn")
@@ -22,9 +32,20 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8wq4x"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye3m7")
+}],
 "loop": 1,
-"name": &"default",
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5qeu")
+}],
+"loop": 1,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -41,7 +62,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2aesg")
 }],
 "loop": 1,
-"name": &"new_animation",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -53,8 +74,8 @@ script = ExtResource("1_epmxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=282128339]
 sprite_frames = SubResource("SpriteFrames_8wq4x")
-animation = &"new_animation"
-frame_progress = 0.1256694
+animation = &"fall"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352917947]
 position = Vector2(0.5000001, 1.5000001)
