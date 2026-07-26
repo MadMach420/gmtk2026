@@ -544,6 +544,7 @@ timeout_value = 7.0
 
 [node name="Gate" parent="Entities" unique_id=1909549645 instance=ExtResource("11_hcsyr")]
 position = Vector2(74, 54)
+object_color_code = Color(0, 1, 0, 1)
 move_distance = 16.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]

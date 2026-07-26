@@ -18,9 +18,3 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	super._process(delta)
-
-
-## This mus be implemented by Level's child, because Level doesn't hold any nodes by default
-func _on_next_level_trigger_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		player_entered_transition_zone.emit()
