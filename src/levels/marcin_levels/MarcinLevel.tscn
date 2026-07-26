@@ -988,7 +988,7 @@ shape = SubResource("RectangleShape2D_efokr")
 
 [node name="ReversableButton1" parent="Entities" unique_id=1932701450 instance=ExtResource("4_kl1ce")]
 position = Vector2(0, -16)
-object_color_code = Color(0.84263474, 3.5616756e-06, 4.813075e-07, 1)
+object_color_code = Color(1, 1, 1, 1)
 
 [node name="ReversableButton2" parent="Entities" unique_id=313841355 instance=ExtResource("4_kl1ce")]
 position = Vector2(64, -16)
@@ -996,14 +996,14 @@ object_color_code = Color(1, 1, 1, 1)
 
 [node name="ReversableButton3" parent="Entities" unique_id=682676932 instance=ExtResource("4_kl1ce")]
 position = Vector2(32, -16)
-object_color_code = Color(0, 1, 0, 1)
+object_color_code = Color(1, 1, 1, 1)
 
 [node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("5_3u4h5")]
 position = Vector2(48, -128)
 
 [node name="Gate1" parent="Entities" unique_id=1909549645 instance=ExtResource("6_bj7fo")]
 position = Vector2(64, 70)
-object_color_code = Color(1, 0, 0, 1)
+object_color_code = Color(1, 1, 1, 1)
 move_distance = 32.0
 
 [node name="Gate2" parent="Entities" unique_id=819243196 instance=ExtResource("6_bj7fo")]
@@ -1013,7 +1013,7 @@ move_distance = 32.0
 
 [node name="Gate3" parent="Entities" unique_id=353402740 instance=ExtResource("6_bj7fo")]
 position = Vector2(0, 70)
-object_color_code = Color(0, 1, 0, 1)
+object_color_code = Color(1, 1, 1, 1)
 move_distance = 32.0
 
 [node name="ExampleCollectible" parent="Entities" unique_id=32695839 instance=ExtResource("8_oyujs")]
