@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_tyshq"]
 [ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="4_vmkji"]
 [ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="5_f40tv"]
+[ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="6_hcv2c"]
 [ext_resource type="FontFile" uid="uid://dhs6onrljd0h2" path="res://assets/fonts/Bitmgothic.ttf" id="8_htnf0"]
 [ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="9_08lep"]
 [ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="10_nm134"]
@@ -256,13 +257,21 @@ tile_map_data = PackedByteArray("AAD8/wMAAQAHAAQAAAD9/wMAAQAHAAQAAAD+/wMAAQAHAAQ
 tile_set = SubResource("TileSet_8wq4x")
 
 [node name="Foreground" type="TileMapLayer" parent="World" unique_id=492271535]
-tile_map_data = PackedByteArray("AAAHAAUAAQALAAEAAAAHAAQAAQALAAEAAAAHAAMAAQALAAEAAAAHAAIAAQALAAEAAAAHAAEAAQALAAEAAAAHAAAAAQALAAEAAAAHAP//AQALAAEAAAAHAP7/AQALAAEAAAAHAP3/AQALAAEAAAAHAPz/AQALAAEAAAAHAPv/AQALAAEAAAAHAPr/AQALAAEAAAD4//r/AQALAAEAAAD4//v/AQALAAEAAAD4//z/AQALAAEAAAD4//3/AQALAAEAAAD4//7/AQALAAEAAAD4////AQALAAEAAAD4/wAAAQALAAEAAAD4/wEAAQALAAEAAAD4/wIAAQALAAEAAAD4/wMAAQALAAEAAAD4/wQAAQALAAEAAAD4/wUAAQALAAEAAAD5//r/AQALAAEAAAD6//r/AQALAAEAAAD7//r/AQALAAEAAAD8//r/AQALAAEAAAD9//r/AQALAAEAAAD+//r/AQALAAEAAAABAPr/AQALAAEAAAACAPr/AQALAAEAAAADAPr/AQALAAEAAAAEAPr/AQALAAEAAAAFAPr/AQALAAEAAAAGAPr/AQALAAEAAAD5/wUAAQALAAEAAAD6/wUAAQALAAEAAAD7/wUAAQALAAEAAAD8/wUAAQALAAEAAAD9/wUAAQALAAEAAAD+/wUAAQALAAEAAAABAAUAAQALAAEAAAACAAUAAQALAAEAAAADAAUAAQALAAEAAAAEAAUAAQALAAEAAAAFAAUAAQALAAEAAAAGAAUAAQALAAEAAAD/////AQALAAEAAAAAAP//AQALAAEAAAAAAAAAAQALAAEAAAD//wAAAQALAAEAAAD+////AQALAAEAAAD+/wAAAQALAAEAAAABAAAAAQALAAEAAAABAP//AQALAAEAAAACAP//AQALAAEAAAACAAAAAQALAAEAAAD9////AQALAAEAAAD9/wAAAQALAAEAAAADAP//AQALAAEAAAADAAAAAQALAAEAAAD8////AQALAAEAAAD8/wAAAQALAAEAAAD7////AQALAAEAAAD7/wAAAQALAAEAAAD6////AQALAAEAAAD6/wAAAQALAAEAAAAEAP//AQALAAEAAAAEAAAAAQALAAEAAAAFAP//AQALAAEAAAAFAAAAAQALAAEAAAD//wIAAQALAAEAAAAAAAIAAQALAAEAAAAAAAEAAQALAAEAAAD//wEAAQALAAEAAAA=")
+tile_map_data = PackedByteArray("AAAHAAUAAQALAAEAAAAHAAQAAQALAAEAAAAHAAMAAQALAAEAAAAHAAIAAQALAAEAAAAHAAEAAQALAAEAAAAHAAAAAQALAAEAAAAHAP//AQALAAEAAAAHAP7/AQALAAEAAAAHAP3/AQALAAEAAAAHAPz/AQALAAEAAAAHAPv/AQALAAEAAAAHAPr/AQALAAEAAAD4//r/AQALAAEAAAD4//v/AQALAAEAAAD4//z/AQALAAEAAAD4//3/AQALAAEAAAD4//7/AQALAAEAAAD4////AQALAAEAAAD4/wAAAQALAAEAAAD4/wEAAQALAAEAAAD4/wIAAQALAAEAAAD4/wMAAQALAAEAAAD4/wQAAQALAAEAAAD4/wUAAQALAAEAAAD5//r/AQALAAEAAAD6//r/AQALAAEAAAD7//r/AQALAAEAAAD8//r/AQALAAEAAAD9//r/AQALAAEAAAD+//r/AQALAAEAAAABAPr/AQALAAEAAAACAPr/AQALAAEAAAADAPr/AQALAAEAAAAEAPr/AQALAAEAAAAFAPr/AQALAAEAAAAGAPr/AQALAAEAAAD5/wUAAQALAAEAAAD6/wUAAQALAAEAAAD7/wUAAQALAAEAAAD8/wUAAQALAAEAAAD9/wUAAQALAAEAAAD+/wUAAQALAAEAAAABAAUAAQALAAEAAAACAAUAAQALAAEAAAADAAUAAQALAAEAAAAEAAUAAQALAAEAAAAFAAUAAQALAAEAAAAGAAUAAQALAAEAAAD/////AQALAAEAAAAAAP//AQALAAEAAAAAAAAAAQALAAEAAAD//wAAAQALAAEAAAD+////AQALAAEAAAD+/wAAAQALAAEAAAABAAAAAQALAAEAAAABAP//AQALAAEAAAACAP//AQALAAEAAAACAAAAAQALAAEAAAD9////AQALAAEAAAD9/wAAAQALAAEAAAA=")
 tile_set = SubResource("TileSet_8wq4x")
 
 [node name="Entities" type="Node2D" parent="." unique_id=619146661]
 
 [node name="Player" parent="Entities" unique_id=2039152220 instance=ExtResource("5_f40tv")]
 position = Vector2(0, -128)
+
+[node name="ReversableBox" parent="Entities" unique_id=986766108 instance=ExtResource("6_hcv2c")]
+position = Vector2(-40, -23)
+object_color_code = Color(0.66218936, 0.4086884, 0.008144878, 1)
+
+[node name="ReversableBox2" parent="Entities" unique_id=1925667222 instance=ExtResource("6_hcv2c")]
+position = Vector2(40, -23)
+object_color_code = Color(0.66218936, 0.4086884, 0.008144878, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1621080265]
 zoom = Vector2(4, 4)
@@ -284,22 +293,23 @@ shape = SubResource("RectangleShape2D_8wq4x")
 [node name="TutorialHud" type="CanvasLayer" parent="." unique_id=2132011924]
 
 [node name="Label" type="Label" parent="TutorialHud" unique_id=389698279]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -101.0
-offset_right = 235.0
-offset_bottom = -23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -39.0
+offset_right = 244.0
+offset_bottom = 39.0
 grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("8_htnf0")
-theme_override_font_sizes/font_size = 24
-text = "Use A/D or Left/Right to move
-Use E to interact
-Use SPACE to start the time loop"
+theme_override_font_sizes/font_size = 32
+text = "SPACE to start the countdown"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="player_entered_transition_zone" from="." to="." method="_on_player_entered_transition_zone"]
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]

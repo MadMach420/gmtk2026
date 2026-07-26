@@ -293,5 +293,4 @@ shape = SubResource("RectangleShape2D_8wq4x")
 
 [node name="Timeline" parent="." unique_id=596911782 instance=ExtResource("10_fvvxk")]
 
-[connection signal="player_entered_transition_zone" from="." to="." method="_on_player_entered_transition_zone"]
 [connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]

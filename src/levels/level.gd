@@ -13,6 +13,8 @@ func _ready() -> void:
 	add_child(restart_pressed_timer)
 	restart_pressed_timer.one_shot = true
 	restart_pressed_timer.timeout.connect(_on_restart_pressed_timer_timeout)
+	
+	player_entered_transition_zone.connect(_on_player_entered_transition_zone)
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart_level") and restart_pressed_timer.is_stopped():

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 ## Has the player pressed the interact action to start the level timer? (Loop or rewind)
 var has_started_timer = false
