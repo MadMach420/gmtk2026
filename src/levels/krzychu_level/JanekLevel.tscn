@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://su4prvb8k611"]
 
+[ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="12_j7m3m"]
+[ext_resource type="AudioStream" uid="uid://cne44by16ccr0" path="res://assets/sounds/sfx/clock_tock.mp3" id="13_hvj2g"]
 [ext_resource type="Script" uid="uid://uguuls22q1c6" path="res://src/levels/krzychu_level/janek_level.gd" id="1_lmusu"]
 [ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="2_bmh2r"]
 [ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_hcsyr"]
@@ -15,8 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="10_bmh2r"]
 [ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="11_gln2h"]
 [ext_resource type="PackedScene" uid="uid://c648duh7w3i8m" path="res://src/gameplay/environment/Gate.tscn" id="11_hcsyr"]
-[ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="12_j7m3m"]
-[ext_resource type="AudioStream" uid="uid://cne44by16ccr0" path="res://assets/sounds/sfx/clock_tock.mp3" id="13_hvj2g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
 texture = ExtResource("2_bmh2r")

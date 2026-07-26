@@ -24,6 +24,7 @@ func _ready() -> void:
 	time_system.loop_ended.connect(func(): animation_player.pause())
 	time_system.rewind_started.connect(func(): animation_player.play("clock_sound"))
 	time_system.rewind_ended.connect(func(): animation_player.pause())
+	player_entered_transition_zone.connect(_on_player_entered_transition_zone)
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart_level") and restart_pressed_timer.is_stopped():

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxujl5s0wu02f" path="res://src/gameplay/Player.tscn" id="5_f40tv"]
 [ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="6_hcv2c"]
 [ext_resource type="PackedScene" uid="uid://xxbwi3268ibt" path="res://src/gameplay/level_objects/TimeBlockZone.tscn" id="5_hcv2c"]
+[ext_resource type="PackedScene" uid="uid://q8ohx2rjj3u3" path="res://src/gameplay/time/ReversableBox.tscn" id="6_hcv2c"]
 [ext_resource type="FontFile" uid="uid://dhs6onrljd0h2" path="res://assets/fonts/Bitmgothic.ttf" id="8_htnf0"]
 [ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="9_08lep"]
 [ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="9_tuiyk"]
