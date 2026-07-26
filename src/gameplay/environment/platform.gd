@@ -3,8 +3,8 @@ extends AnimatableBody2D
 enum MoveDirection { UP, DOWN, LEFT, RIGHT }
 
 @export var direction: MoveDirection = MoveDirection.RIGHT
-@export var move_distance: float = 128.0 # Distance in pixels the platform moves
-@export var travel_time_seconds: float = 2.0
+@export var move_distance: float = 40.0 # Distance in pixels the platform moves
+@export var travel_time_seconds: float = 1.0
 
 var retracted_position: Vector2
 var extended_position: Vector2
