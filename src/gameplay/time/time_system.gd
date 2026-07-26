@@ -9,7 +9,7 @@ signal loop_started
 signal rewind_started
 signal rewind_ended
 
-@export var loop_length_s = 60
+@export var loop_length_s = 12
 
 var loop_timer = Timer.new()
 var rewind_timer = Timer.new()

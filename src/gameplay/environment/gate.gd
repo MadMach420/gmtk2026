@@ -2,6 +2,7 @@ extends StaticBody2D
 
 enum GateDirection { UP, DOWN }
 
+@export var object_color_code: Color = Color()
 @export var open_direction: GateDirection = GateDirection.UP
 @export var open_time_seconds: float = 1.0
 @export var move_distance: float = 64.0 # Height of the gate in pixels
@@ -9,6 +10,7 @@ enum GateDirection { UP, DOWN }
 @onready var closed_position: Vector2 = global_position
 @onready var opened_position: Vector2 = _get_opened_position()
 @onready var move_sound: AudioStreamPlayer2D = $MoveSound
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var _tween: Tween
 
@@ -16,6 +18,7 @@ func _ready() -> void:
 	# Save initial position as the closed state
 	closed_position = global_position
 	opened_position = _get_opened_position()
+	sprite_2d.modulate = object_color_code
 
 func open() -> void:
 	move_sound.play()

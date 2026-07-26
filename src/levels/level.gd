@@ -4,15 +4,26 @@ class_name Level
 signal player_entered_transition_zone
 
 @onready var time_system: TimeSystem = Systems.get_node("%TimeSystem")
+@onready var animation_player: AnimationPlayer = $SFX/AnimationPlayer
+
 @export var restart_timeout_s: float = 0.2
 
 var restart_pressed_timer: Timer = Timer.new()
+
 
 func _ready() -> void:
 	time_system._reset()
 	add_child(restart_pressed_timer)
 	restart_pressed_timer.one_shot = true
+
 	restart_pressed_timer.timeout.connect(_on_restart_pressed_timer_timeout)
+	
+	player_entered_transition_zone.connect(_on_player_entered_transition_zone)
+	## for cock ticking
+	time_system.loop_started.connect(func(): animation_player.play("clock_sound"))
+	time_system.loop_ended.connect(func(): animation_player.pause())
+	time_system.rewind_started.connect(func(): animation_player.play("clock_sound"))
+	time_system.rewind_ended.connect(func(): animation_player.pause())
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("restart_level") and restart_pressed_timer.is_stopped():
