@@ -18,6 +18,7 @@ func _ready() -> void:
 
 	restart_pressed_timer.timeout.connect(_on_restart_pressed_timer_timeout)
 	
+	player_entered_transition_zone.connect(_on_player_entered_transition_zone)
 	## for cock ticking
 	time_system.loop_started.connect(func(): animation_player.play("clock_sound"))
 	time_system.loop_ended.connect(func(): animation_player.pause())
