@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bvgg3puydhh55"]
 
-[ext_resource type="Script" uid="uid://clw52hhkjs132" path="res://src/levels/level.gd" id="1_iic00"]
+[ext_resource type="Script" uid="uid://ncfp2mp54fj8" path="res://src/levels/janek_level/some_new_level_platform.gd" id="1_aigbl"]
 [ext_resource type="Texture2D" uid="uid://betbcbktnj51f" path="res://assets/sprites/Terrain/Grassland_Terrain_47Tiles.png" id="2_cxvyg"]
 [ext_resource type="Texture2D" uid="uid://nkniwncuamod" path="res://assets/sprites/Terrain/Grassland_Terrain_ExtraTiles.png" id="3_aigbl"]
 [ext_resource type="Texture2D" uid="uid://b4qsigglas2xh" path="res://assets/sprites/Terrain/Grassland_Terrain_BgdTiles.png" id="4_q7kyr"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="7_duw6i"]
 [ext_resource type="Script" uid="uid://b26yhukaq0qvn" path="res://src/gameplay/time/reversable_platform.gd" id="8_cxvyg"]
 [ext_resource type="PackedScene" uid="uid://bltp24ltf5111" path="res://src/gameplay/environment/Platform.tscn" id="8_duw6i"]
-[ext_resource type="Script" uid="uid://dx83w4vpwlf8b" path="res://src/gameplay/environment/platform.gd" id="9_iic00"]
 [ext_resource type="PackedScene" uid="uid://x6kwf3jwnp0r" path="res://src/ui/BackgroundClock.tscn" id="10_mux25"]
 [ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="11_x708v"]
 [ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="13_q7kyr"]
@@ -323,8 +322,9 @@ _data = {
 &"clock_sound": SubResource("Animation_aieb4")
 }
 
-[node name="LevelMain" type="Node2D" unique_id=518151189]
-script = ExtResource("1_iic00")
+[node name="LevelMain" type="Node2D" unique_id=1795265098]
+script = ExtResource("1_aigbl")
+metadata/_custom_type_script = "uid://clw52hhkjs132"
 
 [node name="World" type="Node2D" parent="." unique_id=678546020]
 
@@ -357,7 +357,6 @@ metadata/_custom_type_script = "uid://gpaibwtghchp"
 [node name="Platform" parent="Entities/ReversablePlatform" unique_id=1500464514 instance=ExtResource("8_duw6i")]
 position = Vector2(30.522064, 51.763)
 scale = Vector2(0.75, 0.75)
-script = ExtResource("9_iic00")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Entities/ReversablePlatform/Platform" unique_id=1494708482]
 libraries/ = SubResource("AnimationLibrary_q7kyr")
@@ -391,5 +390,3 @@ stream = ExtResource("13_q7kyr")
 
 [node name="ClockTockSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=1241781786]
 stream = ExtResource("14_kcsre")
-
-[connection signal="body_entered" from="NextLevelTrigger" to="." method="_on_next_level_trigger_body_entered"]
