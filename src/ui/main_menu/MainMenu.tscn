@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dtrf77j2qumo1" path="res://assets/sprites/Background/main_menu_placeholder.jpg" id="1_m3ldw"]
 [ext_resource type="Script" uid="uid://catewcq6ku5u8" path="res://src/ui/main_menu/main_menu.gd" id="1_xre00"]
 [ext_resource type="FontFile" uid="uid://dhs6onrljd0h2" path="res://assets/fonts/Bitmgothic.ttf" id="2_xre00"]
-[ext_resource type="AudioStream" uid="uid://h2m1mlfqwiqk" path="res://assets/sounds/theme.wav" id="4_mlydd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6a36"]
 texture = ExtResource("1_m3ldw")
@@ -62,33 +61,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_f6a36")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1207396055]
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1608671077]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -63.5
-offset_right = 75.0
-offset_bottom = 63.5
+offset_left = -277.0
+offset_top = 32.0
+offset_right = 277.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Continue" type="Button" parent="VBoxContainer" unique_id=1495940774]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xre00")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
-text = "Continue"
-
 [node name="New Game" type="Button" parent="VBoxContainer" unique_id=2042042240]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xre00")
 theme_override_font_sizes/font_size = 22
@@ -98,17 +88,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
 text = "New Game"
 
-[node name="Options" type="Button" parent="VBoxContainer" unique_id=986080337]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_xre00")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/normal = SubResource("StyleBoxFlat_f6a36")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mlydd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_56llo")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ubb3x")
-text = "Options"
-
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=629408760]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_xre00")
 theme_override_font_sizes/font_size = 22
@@ -132,12 +113,5 @@ theme_override_fonts/font = ExtResource("2_xre00")
 theme_override_font_sizes/font_size = 28
 text = "Placeholderowa nazwa"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1187637591]
-stream = ExtResource("4_mlydd")
-autoplay = true
-bus = &"Music"
-
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
