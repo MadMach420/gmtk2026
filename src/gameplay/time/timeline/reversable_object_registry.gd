@@ -11,3 +11,6 @@ var registered_reversable_objects: Array[ReversableObject] = []
 func register_object(object: ReversableObject) -> void:
 	registered_reversable_objects.append(object)
 	object_registered.emit(object)
+
+func unregister_object(object: ReversableObject) -> void:
+	registered_reversable_objects.erase(object)

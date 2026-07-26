@@ -5,6 +5,7 @@ const BEGGINING_CUTSCENE_PATH = "" # nalezy to wypelnic
 const LEVEL_PATHS_IN_ORDER: Array[NodePath] = [
 	"res://src/levels/tutorial_level/TutorialLevel.tscn",
 	"res://src/levels/szymon_level/SzymonLevel.tscn",
+	"res://src/levels/marcin_levels/MarcinLevel.tscn",
 	"res://src/levels/janek_level/JanekLevel.tscn"
 ]
 const FINAL_CUTSCENE_PATH = "" # nalezy to wypelnic

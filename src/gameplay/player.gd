@@ -46,6 +46,14 @@ func _physics_process(delta: float) -> void:
 			sprite_2d.flip_h = false
 		elif direction < 0:
 			sprite_2d.flip_h = true
+			
+		if is_on_floor():
+			if direction == 0:
+				sprite_2d.play("idle")
+			else:
+				sprite_2d.play("walk")
+		else:
+			sprite_2d.play("fall")
 		
 		if  use_legacy_movement:
 			if direction:
@@ -56,6 +64,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = player_movement.get_horizontal_velocity(velocity.x, direction, delta)
 	else:
 		velocity.x = 0
+		if is_on_floor():
+			sprite_2d.play("idle")
+		else:
+			sprite_2d.play("fall")
 	
 	previous_velocity = velocity.x
 	
