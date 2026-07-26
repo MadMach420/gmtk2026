@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://qla420j6mqny" path="res://src/gameplay/time/ReversableButton.tscn" id="10_bmh2r"]
 [ext_resource type="PackedScene" uid="uid://00jlcbtjncoh" path="res://src/ui/ForegroundClock.tscn" id="11_gln2h"]
 [ext_resource type="PackedScene" uid="uid://c648duh7w3i8m" path="res://src/gameplay/environment/Gate.tscn" id="11_hcsyr"]
+[ext_resource type="AudioStream" uid="uid://ddi2i2vkt4dlx" path="res://assets/sounds/sfx/clock_tick.mp3" id="12_j7m3m"]
+[ext_resource type="AudioStream" uid="uid://cne44by16ccr0" path="res://assets/sounds/sfx/clock_tock.mp3" id="13_hvj2g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pv1by"]
 texture = ExtResource("2_bmh2r")
@@ -263,6 +265,40 @@ size = Vector2(9.090895, 9.090895)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wq4x"]
 size = Vector2(32, 9)
 
+[sub_resource type="Animation" id="Animation_aieb4"]
+resource_name = "clock_sound"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SFX/ClockTickSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SFX/ClockTockSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rvir"]
+_data = {
+&"clock_sound": SubResource("Animation_aieb4")
+}
+
 [node name="LevelMain" type="Node2D" unique_id=518151189]
 script = ExtResource("1_lmusu")
 
@@ -365,6 +401,18 @@ position = Vector2(96, 89)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelTrigger" unique_id=1276196483]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_8wq4x")
+
+[node name="SFX" type="Node2D" parent="." unique_id=1288870835]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SFX" unique_id=775084125]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_1rvir")
+
+[node name="ClockTickSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=229565323]
+stream = ExtResource("12_j7m3m")
+
+[node name="ClockTockSound" type="AudioStreamPlayer2D" parent="SFX" unique_id=1177793205]
+stream = ExtResource("13_hvj2g")
 
 [connection signal="body_entered" from="World/FadeTrigger/Area2D" to="World/FadeTrigger" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="World/FadeTrigger/Area2D" to="World/FadeTrigger" method="_on_area_2d_body_exited"]
