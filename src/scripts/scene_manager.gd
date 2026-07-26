@@ -6,7 +6,8 @@ const LEVEL_PATHS_IN_ORDER: Array[NodePath] = [
 	"res://src/levels/tutorial_level/TutorialLevel.tscn",
 	"res://src/levels/krzychu_level/JanekLevel.tscn",
 	"res://src/levels/szymon_level/SzymonLevel.tscn",
-	"res://src/levels/marcin_levels/MarcinLevel.tscn"
+	"res://src/levels/marcin_levels/MarcinLevel.tscn",
+	"res://src/levels/marcin_levels/MarcinLevel2.tscn"
 ]
 const FINAL_CUTSCENE_PATH = "res://src/cutscenes/EndingCutscene.tscn" # nalezy to wypelnic
 

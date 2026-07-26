@@ -46,7 +46,7 @@ func _move_to(target_position: Vector2) -> void:
 
 	# Proportional duration ensures consistent speed when interrupted
 	var duration: float = open_time_seconds * (distance_left / total_distance)
-
+	
 	_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_tween.tween_property(self, "global_position", target_position, duration)
 
