@@ -9,6 +9,8 @@ extends Level
 @onready var gate2: StaticBody2D = $Entities/Gate2
 @onready var gate3: StaticBody2D = $Entities/Gate3
 
+@onready var soundtrack_system: SoundtrackSystem = Systems.get_node("%SoundtrackSystem")
+
 
 func _ready() -> void:
 	super._ready()
@@ -22,3 +24,4 @@ func _process(delta: float) -> void:
 func _on_next_level_trigger_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_entered_transition_zone.emit()
+		soundtrack_system._set_normal()

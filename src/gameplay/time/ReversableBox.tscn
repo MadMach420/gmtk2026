@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://q8ohx2rjj3u3"]
 
 [ext_resource type="Script" uid="uid://bhmbucmocx7kw" path="res://src/gameplay/time/reversable_box.gd" id="2_a6fbb"]
-[ext_resource type="Texture2D" uid="uid://ch4em2joaieqd" path="res://assets/sprites/KraftoweAssety/skrzynka.png" id="2_mvyla"]
+[ext_resource type="Texture2D" uid="uid://c1yqdj5xh1r0v" path="res://assets/sprites/box.png" id="2_mvyla"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mvyla"]
 friction = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qam74"]
-size = Vector2(7.9545326, 7.9545326)
+size = Vector2(9.090895, 9.090895)
 
 [node name="ReversableBox" type="Node2D" unique_id=986766108]
 script = ExtResource("2_a6fbb")

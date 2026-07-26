@@ -82,6 +82,10 @@ func _states_equal(a: Dictionary, b: Dictionary, delta_t: float = EPSILON_T) -> 
 func _is_at_rest() -> bool:
 	return false
 
+## Virtual: return the texture that represents this objects on the timeline
+func get_texture() -> Texture2D:
+	return null
+
 
 # --------------------------------
 # --- General reversable logic ---
